@@ -37,17 +37,20 @@ FlairForge follows a comprehensive testing strategy aligned with Cognitive Mesh 
 Unit tests verify individual functions, components, and utilities in isolation.
 
 **Frontend Unit Tests:**
+
 - React components (rendering, state, props)
 - Utility functions (AI enhancement, form validation)
 - Store management (Zustand state)
 
 **Backend Unit Tests:**
+
 - API endpoint logic
 - Template processing
 - AI enhancement algorithms
 - Data validation
 
 **Running Unit Tests:**
+
 ```bash
 # Frontend unit tests
 npm run test:unit:frontend
@@ -64,16 +67,19 @@ npm run test:unit
 Integration tests verify how components work together and API contracts.
 
 **Frontend Integration:**
+
 - Component interactions
 - API calls and responses
 - State management integration
 
 **Backend Integration:**
+
 - API endpoint integration
 - Database operations
 - External service integration
 
 **Running Integration Tests:**
+
 ```bash
 # Backend integration tests
 npm run test:integration
@@ -87,6 +93,7 @@ npm run test:integration
 E2E tests verify complete user workflows using Playwright.
 
 **Test Scenarios:**
+
 - Complete flyer creation workflow
 - AI enhancement process
 - Template selection and preview
@@ -95,6 +102,7 @@ E2E tests verify complete user workflows using Playwright.
 - Responsive design
 
 **Running E2E Tests:**
+
 ```bash
 # Run E2E tests
 npm run test:e2e
@@ -111,12 +119,14 @@ npx playwright test tests/e2e/flyer-creation.spec.ts
 Performance tests use k6 to load test the application.
 
 **Test Scenarios:**
+
 - API response times under load
 - Concurrent user simulation
 - Resource usage monitoring
 - Performance regression detection
 
 **Running Performance Tests:**
+
 ```bash
 # Run performance tests
 npm run test:performance
@@ -130,6 +140,7 @@ BASE_URL=https://staging.flairforge.netlify.app npm run test:performance
 Security tests validate input sanitization, XSS prevention, and other security measures.
 
 **Test Areas:**
+
 - Input validation and sanitization
 - File upload security
 - XSS prevention
@@ -137,6 +148,7 @@ Security tests validate input sanitization, XSS prevention, and other security m
 - Authentication (future)
 
 **Running Security Tests:**
+
 ```bash
 # Run security tests
 npm run test:security
@@ -149,17 +161,20 @@ npm audit --audit-level=moderate
 
 ### Prerequisites
 
-1. Install dependencies:
+#### 1. Install dependencies
+
 ```bash
 npm run install:all
 ```
 
-2. Install Playwright browsers (for E2E tests):
+#### 2. Install Playwright browsers (for E2E tests)
+
 ```bash
 cd frontend && npx playwright install --with-deps
 ```
 
-3. Install k6 (for performance tests):
+#### 3. Install k6 (for performance tests)
+
 ```bash
 # macOS
 brew install k6
@@ -219,7 +234,7 @@ API_BASE_URL=http://localhost:8888
 
 ### Frontend Test Structure
 
-```
+``` text
 frontend/
 ├── tests/
 │   ├── unit/
@@ -245,7 +260,7 @@ frontend/
 
 ### Backend Test Structure
 
-```
+``` text
 backend/
 ├── tests/
 │   ├── unit/
@@ -397,6 +412,7 @@ npm run test:coverage
 ```
 
 Coverage reports are available in:
+
 - Frontend: `frontend/coverage/`
 - Backend: `backend/coverage/`
 
@@ -410,6 +426,7 @@ Coverage reports are available in:
 ### Excluded Files
 
 The following files are excluded from coverage:
+
 - Test files (`*.test.*`, `*.spec.*`)
 - Configuration files
 - Build outputs
@@ -420,6 +437,7 @@ The following files are excluded from coverage:
 ### GitHub Actions
 
 Tests run automatically on:
+
 - Push to `main` and `develop` branches
 - Pull requests to `main` and `develop` branches
 
@@ -443,7 +461,8 @@ Tests run automatically on:
 #### 1. Test Environment Setup
 
 **Problem**: Tests fail due to missing dependencies
-**Solution**: 
+**Solution**:
+
 ```bash
 npm run install:all
 cd frontend && npx playwright install --with-deps
@@ -453,6 +472,7 @@ cd frontend && npx playwright install --with-deps
 
 **Problem**: E2E tests fail due to timing issues
 **Solution**: Increase timeouts in test files:
+
 ```typescript
 await expect(page.locator('[data-testid="element"]')).toBeVisible({ timeout: 10000 })
 ```
@@ -461,6 +481,7 @@ await expect(page.locator('[data-testid="element"]')).toBeVisible({ timeout: 100
 
 **Problem**: Performance tests fail due to network issues
 **Solution**: Check network connectivity and API availability:
+
 ```bash
 curl https://flairforge.netlify.app/.netlify/functions/api/templates
 ```
@@ -469,6 +490,7 @@ curl https://flairforge.netlify.app/.netlify/functions/api/templates
 
 **Problem**: Coverage reports show incorrect data
 **Solution**: Clean and rebuild:
+
 ```bash
 npm run clean
 npm run install:all
@@ -551,4 +573,4 @@ npx playwright test tests/e2e/flyer-creation.spec.ts --debug
 
 ---
 
-For more information, see the [Testing Strategy Document](flairforge-testing-strategy.md) and [API Documentation](flairforge-api-reference.md). 
+For more information, see the [Testing Strategy Document](flairforge-testing-strategy.md) and [API Documentation](flairforge-api-reference.md).

@@ -10,6 +10,7 @@
 **Last Updated**: [Date]  
 
 ## TL;DR
+
 Brief 2-3 sentence summary of what this observability spec covers, which mesh layers are involved, and the primary monitoring objectives.
 
 ---
@@ -17,12 +18,14 @@ Brief 2-3 sentence summary of what this observability spec covers, which mesh la
 ## 1. Observability Objectives
 
 ### 1.1 Primary Goals
+
 - **Reliability**: Ensure [target uptime/availability] for mesh components
 - **Performance**: Maintain [response time/latency targets] across mesh layers
 - **User Experience**: Monitor [specific user journey metrics]
 - **Business Impact**: Track [revenue/adoption/efficiency metrics]
 
 ### 1.2 Success Criteria
+
 | Objective | Metric | Target | Alert Threshold |
 |-----------|--------|--------|----------------|
 | System Reliability | Uptime % | 99.9% | < 99.5% |
@@ -31,6 +34,7 @@ Brief 2-3 sentence summary of what this observability spec covers, which mesh la
 | User Satisfaction | Success Rate | > 95% | < 90% |
 
 ### 1.3 Mesh-Specific Objectives
+
 - **Foundation Layer**: Data integrity, pipeline health, storage performance
 - **Reasoning Layer**: Model accuracy, inference latency, compute utilization
 - **Metacognitive Layer**: Learning effectiveness, adaptation cycles, feedback loops
@@ -42,9 +46,11 @@ Brief 2-3 sentence summary of what this observability spec covers, which mesh la
 ## 2. Mesh Layer Monitoring Strategy
 
 ### 2.1 Foundation Layer Observability
+
 **Components**: Data pipelines, storage systems, APIs, infrastructure
 
 #### 2.1.1 Metrics Collection
+
 ```yaml
 foundation_metrics:
   data_pipeline:
@@ -67,21 +73,25 @@ foundation_metrics:
 ```
 
 #### 2.1.2 Key Logs
+
 - API request/response logs with correlation IDs
 - Data processing job logs with batch/stream metadata
 - Error logs with stack traces and context
 - Security audit logs for data access
 
 #### 2.1.3 Traces
+
 - Request flow through data processing pipeline
 - Cross-service communication within foundation
 - Database query execution paths
 - Cache hit/miss patterns
 
 ### 2.2 Reasoning Layer Observability
+
 **Components**: AI/ML models, inference engines, training pipelines
 
 #### 2.2.1 Model Performance Metrics
+
 ```yaml
 reasoning_metrics:
   model_performance:
@@ -105,15 +115,18 @@ reasoning_metrics:
 ```
 
 #### 2.2.2 AI-Specific Monitoring
+
 - Model version tracking and A/B test results
 - Feature importance and SHAP values
 - Bias detection across different data segments
 - Model explainability metrics
 
 ### 2.3 Metacognitive Layer Observability
+
 **Components**: Learning algorithms, adaptation mechanisms, feedback systems
 
 #### 2.3.1 Self-Optimization Metrics
+
 ```yaml
 metacognitive_metrics:
   learning_cycles:
@@ -129,10 +142,12 @@ metacognitive_metrics:
     - loop_completion_rate: "percentage"
 ```
 
-### 2.4 Agency Layer Observability  
+### 2.4 Agency Layer Observability
+
 **Components**: Security controls, access management, compliance systems
 
 #### 2.4.1 Security & Compliance Metrics
+
 ```yaml
 agency_metrics:
   security:
@@ -149,9 +164,11 @@ agency_metrics:
 ```
 
 ### 2.5 Business Application Layer Observability
+
 **Components**: User interfaces, workflow engines, business logic
 
 #### 2.5.1 User Experience Metrics
+
 ```yaml
 business_metrics:
   user_experience:
@@ -171,23 +188,27 @@ business_metrics:
 ## 3. Technology Stack
 
 ### 3.1 Metrics Collection
+
 - **Primary**: Prometheus + Grafana
 - **Mesh Integration**: Custom exporters for each mesh layer
 - **Retention**: 1 year for aggregated metrics, 30 days for raw data
 
 ### 3.2 Logging Infrastructure  
+
 - **Collection**: Fluent Bit → Elasticsearch
 - **Storage**: ELK Stack (Elasticsearch, Logstash, Kibana)
 - **Structured Logging**: JSON format with standard fields
 - **Retention**: 90 days for application logs, 1 year for audit logs
 
 ### 3.3 Distributed Tracing
+
 - **Framework**: OpenTelemetry
 - **Backend**: Jaeger or Grafana Tempo  
 - **Sampling**: 1% for production, 100% for development
 - **Mesh Context**: Include mesh layer, skill pack, and user context
 
 ### 3.4 Alerting & Notification
+
 - **Platform**: AlertManager + PagerDuty
 - **Channels**: Slack, email, SMS for critical alerts
 - **Escalation**: Follow mesh layer ownership hierarchy
@@ -197,6 +218,7 @@ business_metrics:
 ## 4. Alerting Rules & Thresholds
 
 ### 4.1 Critical Alerts (P1 - Immediate Response)
+
 ```yaml
 critical_alerts:
   - name: "Mesh Layer Down"
@@ -213,6 +235,7 @@ critical_alerts:
 ```
 
 ### 4.2 Warning Alerts (P2 - Response within hours)
+
 ```yaml
 warning_alerts:
   - name: "Elevated Response Time"
@@ -225,6 +248,7 @@ warning_alerts:
 ```
 
 ### 4.3 Mesh-Specific Alerts
+
 - **Foundation**: Data pipeline failures, storage capacity warnings
 - **Reasoning**: Model drift detection, inference latency spikes
 - **Metacognitive**: Learning cycle failures, adaptation ineffectiveness
@@ -236,17 +260,21 @@ warning_alerts:
 ## 5. Dashboards & Visualization
 
 ### 5.1 Executive Dashboard
+
 **Audience**: Leadership, product managers  
 **Metrics**: High-level KPIs, business impact, user satisfaction  
 **Update Frequency**: Real-time with daily/weekly trends
 
-### 5.2 Operational Dashboard  
+### 5.2 Operational Dashboard
+
 **Audience**: SREs, platform engineers  
 **Metrics**: System health, performance metrics, alert status  
 **Update Frequency**: Real-time with 5-minute granularity
 
 ### 5.3 Mesh Layer Dashboards
+
 **Individual dashboards for each mesh layer**:
+
 - Foundation: Infrastructure and data pipeline health
 - Reasoning: Model performance and AI metrics  
 - Metacognitive: Learning and adaptation effectiveness
@@ -254,6 +282,7 @@ warning_alerts:
 - Business: User experience and feature metrics
 
 ### 5.4 Incident Response Dashboard
+
 **Audience**: On-call engineers, incident commanders  
 **Metrics**: Current alerts, system topology, recent deployments  
 **Features**: Runbook links, escalation contacts, incident timeline
@@ -263,13 +292,15 @@ warning_alerts:
 ## 6. Service Level Objectives (SLOs)
 
 ### 6.1 Availability SLOs
+
 | Service | SLO | Error Budget (Monthly) | Measurement Window |
 |---------|-----|----------------------|-------------------|
 | Foundation APIs | 99.9% | 43.2 minutes | 30 days |
 | Reasoning Engine | 99.5% | 3.6 hours | 30 days |
 | Agency Services | 99.95% | 21.6 minutes | 30 days |
 
-### 6.2 Performance SLOs  
+### 6.2 Performance SLOs
+
 | Service | Metric | SLO | Measurement |
 |---------|--------|-----|-------------|
 | API Response Time | P95 latency | < 200ms | 7-day rolling |
@@ -277,6 +308,7 @@ warning_alerts:
 | User Workflows | End-to-end time | < 5 seconds | 7-day rolling |
 
 ### 6.3 Quality SLOs
+
 | Service | Metric | SLO | Measurement |
 |---------|--------|-----|-------------|
 | Model Accuracy | Prediction accuracy | > 90% | Daily batch evaluation |
@@ -288,6 +320,7 @@ warning_alerts:
 ## 7. Incident Response Integration
 
 ### 7.1 Alert Routing
+
 ```yaml
 alert_routing:
   critical:
@@ -300,11 +333,13 @@ alert_routing:
 ```
 
 ### 7.2 Runbook Integration
+
 - Link alerts to specific runbooks in Cognitive Mesh documentation
 - Include mesh layer context for faster triage
 - Provide troubleshooting steps specific to each component
 
 ### 7.3 Post-Incident Analysis
+
 - Automated incident timeline from observability data
 - Impact analysis across mesh layers
 - Integration with blameless post-mortem process
@@ -314,6 +349,7 @@ alert_routing:
 ## 8. Data Retention & Compliance
 
 ### 8.1 Retention Policies
+
 | Data Type | Retention Period | Storage Tier | Compliance Notes |
 |-----------|------------------|--------------|------------------|
 | Raw Metrics | 30 days | Hot storage | Real-time analysis |
@@ -323,6 +359,7 @@ alert_routing:
 | Traces | 14 days | Hot storage | Performance debugging |
 
 ### 8.2 Privacy & Security
+
 - PII scrubbing in logs and metrics
 - Encryption at rest and in transit
 - Access controls aligned with mesh layer permissions
@@ -333,12 +370,14 @@ alert_routing:
 ## 9. Cost Management
 
 ### 9.1 Cost Optimization
+
 - Metric cardinality monitoring and optimization
 - Log volume reduction through intelligent sampling
 - Storage tier optimization based on access patterns
 - Reserved capacity planning for predictable workloads
 
 ### 9.2 Budget Allocation
+
 | Component | Monthly Budget | Allocation |
 |-----------|----------------|------------|
 | Metrics Storage | $X,XXX | 40% |
@@ -351,24 +390,28 @@ alert_routing:
 ## 10. Implementation Roadmap
 
 ### 10.1 Phase 1: Foundation (Weeks 1-4)
+
 - [ ] Deploy Prometheus and Grafana
 - [ ] Implement basic infrastructure metrics
 - [ ] Set up log aggregation pipeline
 - [ ] Create initial dashboards
 
-### 10.2 Phase 2: Mesh Integration (Weeks 5-8)  
+### 10.2 Phase 2: Mesh Integration (Weeks 5-8)
+
 - [ ] Develop mesh layer-specific exporters
 - [ ] Implement distributed tracing
 - [ ] Create mesh-aware dashboards
 - [ ] Set up basic alerting rules
 
 ### 10.3 Phase 3: Advanced Features (Weeks 9-12)
+
 - [ ] Implement SLO monitoring
 - [ ] Create incident response integration
 - [ ] Set up automated remediation
 - [ ] Optimize cost and performance
 
 ### 10.4 Phase 4: Continuous Improvement (Ongoing)
+
 - [ ] Regular review and optimization
 - [ ] New feature observability integration
 - [ ] User feedback incorporation
@@ -379,12 +422,14 @@ alert_routing:
 ## 11. Validation & Testing
 
 ### 11.1 Observability Testing
+
 - **Chaos Engineering**: Validate monitoring during failures
 - **Load Testing**: Ensure observability scales with traffic
 - **Alert Testing**: Regular validation of alert rules and escalations
 - **Dashboard Testing**: User acceptance testing for visualization
 
 ### 11.2 Mesh-Specific Validation
+
 - Test observability across mesh layer boundaries
 - Validate correlation between business metrics and technical metrics
 - Ensure security and compliance monitoring effectiveness
@@ -395,12 +440,14 @@ alert_routing:
 ## 12. Documentation & Training
 
 ### 12.1 Documentation Requirements
+
 - Runbook creation for each monitored component
 - Dashboard user guides for different audiences
 - Alert response procedures
 - Observability architecture documentation
 
 ### 12.2 Training Program
+
 - Observability best practices for development teams
 - Dashboard usage training for stakeholders
 - Incident response training with observability tools
@@ -411,6 +458,7 @@ alert_routing:
 ## 13. Success Metrics
 
 ### 13.1 Observability Effectiveness
+
 | Metric | Target | Current | Trend |
 |--------|--------|---------|-------|
 | Mean Time to Detection (MTTD) | < 2 minutes | TBD | ↗️ |
@@ -419,6 +467,7 @@ alert_routing:
 | Alert Actionability | > 90% | TBD | ↗️ |
 
 ### 13.2 Business Impact
+
 - Reduced downtime and faster incident resolution
 - Improved user experience through proactive monitoring
 - Enhanced development velocity through better visibility
@@ -429,23 +478,29 @@ alert_routing:
 ## 14. Appendices
 
 ### A. Mesh Layer Component Mapping
+
 [Detailed mapping of each component to mesh layers]
 
 ### B. Metric Definitions
+
 [Comprehensive glossary of all metrics and their calculations]
 
 ### C. Alert Severity Matrix
+
 [Detailed decision matrix for alert severity levels]
 
 ### D. Integration Points
+
 [Technical specifications for integrating with existing systems]
 
 ### E. Troubleshooting Guide
+
 [Common issues and resolution steps]
 
 ---
 
-**Document Control**
+## **Document Control**
+
 - **Version History**: Track all changes and updates
 - **Review Cycle**: Quarterly review and update
 - **Approvers**: [List of stakeholders who must approve changes]

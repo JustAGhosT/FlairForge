@@ -19,12 +19,14 @@ FlairForge requires comprehensive observability to ensure reliable AI-powered fl
 ## 2. Observability Goals & Objectives
 
 ### Primary Goals
+
 - **Reliability**: Detect and resolve issues before user impact
 - **Performance**: Monitor and optimize flyer generation performance
 - **User Experience**: Track user journey and satisfaction metrics
 - **Business Impact**: Measure flyer generation success and AI enhancement effectiveness
 
 ### Success Criteria
+
 - Mean Time to Detection (MTTD) < 5 minutes
 - Mean Time to Resolution (MTTR) < 15 minutes
 - 99.9% metric collection uptime
@@ -34,7 +36,8 @@ FlairForge requires comprehensive observability to ensure reliable AI-powered fl
 ## 3. Observability Architecture
 
 ### Data Flow Architecture
-```
+
+``` text
 User Request → Frontend (React) → Netlify Functions → AI Enhancement → Template Processing → Response
      ↓              ↓                    ↓                ↓                ↓              ↓
   Browser      Performance         Function         AI Model         Template       Response
@@ -45,6 +48,7 @@ User Request → Frontend (React) → Netlify Functions → AI Enhancement → T
 ```
 
 ### Mesh Layer Integration
+
 | Layer         | Component        | Observability Focus                 | Data Sources                     |
 | ------------- | ---------------- | ----------------------------------- | -------------------------------- |
 | Business      | React Frontend   | User experience, performance        | Browser metrics, Web Vitals      |
@@ -58,6 +62,7 @@ User Request → Frontend (React) → Netlify Functions → AI Enhancement → T
 ### 4.1 Infrastructure Monitoring
 
 #### Netlify Platform Metrics
+
 ```yaml
 # Infrastructure metrics to collect
 metrics:
@@ -83,6 +88,7 @@ metrics:
 ```
 
 #### Resource Utilization
+
 ```yaml
 # Resource monitoring
 resources:
@@ -105,6 +111,7 @@ resources:
 ### 4.2 Application Performance Monitoring (APM)
 
 #### Frontend Performance Metrics
+
 ```javascript
 // Core Web Vitals monitoring
 const webVitals = {
@@ -125,6 +132,7 @@ const customMetrics = {
 ```
 
 #### Backend Performance Metrics
+
 ```yaml
 # API performance metrics
 api_metrics:
@@ -152,6 +160,7 @@ api_metrics:
 ### 4.3 Business Metrics
 
 #### User Engagement Metrics
+
 ```yaml
 # User behavior metrics
 user_metrics:
@@ -173,6 +182,7 @@ user_metrics:
 ```
 
 #### AI Model Performance Metrics
+
 ```yaml
 # AI enhancement metrics
 ai_metrics:
@@ -201,6 +211,7 @@ ai_metrics:
 ### 5.1 Log Structure & Format
 
 #### Structured Logging Schema
+
 ```json
 {
   "timestamp": "2024-01-15T10:30:00.000Z",
@@ -234,6 +245,7 @@ ai_metrics:
 ```
 
 #### Log Levels & Usage
+
 ```yaml
 log_levels:
   ERROR:
@@ -268,6 +280,7 @@ log_levels:
 ### 5.2 Log Aggregation & Storage
 
 #### Log Collection Strategy
+
 ```yaml
 # Log collection configuration
 log_collection:
@@ -288,7 +301,8 @@ log_collection:
 ```
 
 #### Log Processing Pipeline
-```
+
+``` text
 Raw Logs → Parsing → Enrichment → Filtering → Storage → Analysis
     ↓         ↓         ↓          ↓         ↓        ↓
   Netlify   JSON     Add Mesh    Remove     S3/      Dashboards
@@ -300,6 +314,7 @@ Raw Logs → Parsing → Enrichment → Filtering → Storage → Analysis
 ### 6.1 Trace Configuration
 
 #### Trace Sampling Strategy
+
 ```yaml
 # Trace sampling configuration
 tracing:
@@ -315,6 +330,7 @@ tracing:
 ```
 
 #### Trace Spans for Flyer Generation
+
 ```yaml
 # Trace span structure
 flyer_generation_trace:
@@ -339,6 +355,7 @@ flyer_generation_trace:
 ### 6.2 Trace Visualization
 
 #### Trace Dashboard Configuration
+
 ```yaml
 # Trace visualization settings
 trace_dashboard:
@@ -361,6 +378,7 @@ trace_dashboard:
 ### 7.1 Alert Classification
 
 #### Severity Levels
+
 ```yaml
 # Alert severity classification
 severity_levels:
@@ -404,6 +422,7 @@ severity_levels:
 ### 7.2 Alert Rules
 
 #### Critical Alerts
+
 ```yaml
 # Critical alert rules
 critical_alerts:
@@ -421,6 +440,7 @@ critical_alerts:
 ```
 
 #### Performance Alerts
+
 ```yaml
 # Performance alert rules
 performance_alerts:
@@ -440,6 +460,7 @@ performance_alerts:
 ### 7.3 Alert Notification Channels
 
 #### Notification Configuration
+
 ```yaml
 # Alert notification setup
 notifications:
@@ -465,6 +486,7 @@ notifications:
 ### 8.1 Executive Dashboard
 
 #### Key Performance Indicators
+
 ```yaml
 # Executive dashboard KPIs
 executive_dashboard:
@@ -489,6 +511,7 @@ executive_dashboard:
 ### 8.2 Engineering Dashboard
 
 #### Technical Metrics
+
 ```yaml
 # Engineering dashboard metrics
 engineering_dashboard:
@@ -513,6 +536,7 @@ engineering_dashboard:
 ### 8.3 AI Model Dashboard
 
 #### AI Performance Metrics
+
 ```yaml
 # AI model dashboard
 ai_model_dashboard:
@@ -539,6 +563,7 @@ ai_model_dashboard:
 ### 9.1 Data Retention Policy
 
 #### Retention Schedule
+
 ```yaml
 # Data retention configuration
 retention_policy:
@@ -562,6 +587,7 @@ retention_policy:
 ### 9.2 Compliance Requirements
 
 #### Data Privacy & Security
+
 ```yaml
 # Compliance configuration
 compliance:
@@ -584,6 +610,7 @@ compliance:
 ## 10. Implementation Roadmap
 
 ### 10.1 Phase 1: Foundation (Weeks 1-4)
+
 ```yaml
 # Phase 1 implementation
 phase_1:
@@ -604,6 +631,7 @@ phase_1:
 ```
 
 ### 10.2 Phase 2: Enhancement (Weeks 5-8)
+
 ```yaml
 # Phase 2 implementation
 phase_2:
@@ -624,6 +652,7 @@ phase_2:
 ```
 
 ### 10.3 Phase 3: Intelligence (Weeks 9-12)
+
 ```yaml
 # Phase 3 implementation
 phase_3:
@@ -646,6 +675,7 @@ phase_3:
 ## 11. Success Metrics & Validation
 
 ### 11.1 Observability Success Metrics
+
 ```yaml
 # Success metrics
 success_metrics:
@@ -678,6 +708,7 @@ success_metrics:
 ```
 
 ### 11.2 Validation Criteria
+
 ```yaml
 # Validation checklist
 validation_criteria:
@@ -703,6 +734,7 @@ validation_criteria:
 ## 12. Maintenance & Continuous Improvement
 
 ### 12.1 Regular Reviews
+
 ```yaml
 # Maintenance schedule
 maintenance_schedule:
@@ -728,6 +760,7 @@ maintenance_schedule:
 ```
 
 ### 12.2 Continuous Improvement
+
 ```yaml
 # Improvement initiatives
 improvement_initiatives:
@@ -752,4 +785,4 @@ improvement_initiatives:
 **Observability Specification Version:** 1.0  
 **Created:** 2024-01-15  
 **Last Modified:** 2024-01-15  
-**Next Review:** 2024-04-15 
+**Next Review:** 2024-04-15

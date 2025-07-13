@@ -11,10 +11,12 @@
 ## 1. Architecture Overview
 
 ### 1.1 System Purpose
+
 FlairForge is an AI-powered flyer generation platform that transforms user content into professional marketing materials using intelligent enhancement and template management across the Cognitive Mesh layers.
 
 ### 1.2 High-Level Architecture
-```
+
+``` text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              FlairForge Platform                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
@@ -56,7 +58,8 @@ FlairForge is an AI-powered flyer generation platform that transforms user conte
 ### 2.1 Frontend Components (Business Layer)
 
 #### React Application Structure
-```
+
+``` text
 src/
 ├── components/
 │   ├── Header/
@@ -104,7 +107,8 @@ src/
 ```
 
 #### Component Interaction Flow
-```
+
+``` text
 User Input → WorkflowSteps → TemplateSelector → ImageUpload → AIEnhancement → Preview → Export
      ↓            ↓               ↓              ↓              ↓            ↓        ↓
   State      Step          Template         File          AI Model      Real-time   Download
@@ -117,7 +121,8 @@ User Input → WorkflowSteps → TemplateSelector → ImageUpload → AIEnhancem
 ### 2.2 Backend Components (Foundation Layer)
 
 #### Netlify Functions Architecture
-```
+
+``` text
 backend/
 ├── netlify/
 │   └── functions/
@@ -133,7 +138,8 @@ backend/
 ```
 
 #### API Endpoints Structure
-```
+
+``` text
 /api/
 ├── health                          # Health check endpoint
 ├── generate-flyer                  # Flyer generation endpoint
@@ -144,7 +150,8 @@ backend/
 ### 2.3 AI Enhancement Components (Reasoning Layer)
 
 #### AI Processing Pipeline
-```
+
+``` text
 User Content → Content Analyzer → Enhancement Engine → Quality Check → Enhanced Output
      ↓              ↓                    ↓                ↓              ↓
   Raw Text      Content Type        AI Model         Validation      Optimized
@@ -155,6 +162,7 @@ User Content → Content Analyzer → Enhancement Engine → Quality Check → E
 ```
 
 #### AI Model Integration
+
 ```javascript
 // AI Enhancement Flow
 const aiEnhancement = {
@@ -183,7 +191,8 @@ const aiEnhancement = {
 ### 3.1 User Journey Data Flow
 
 #### Complete Flyer Generation Flow
-```
+
+``` text
 1. User Input
    ↓
 2. Template Selection
@@ -204,7 +213,8 @@ const aiEnhancement = {
 ```
 
 #### Detailed Data Flow Diagram
-```
+
+``` text
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
 │   User      │───▶│  React      │───▶│  Netlify    │───▶│  AI         │
 │  Browser    │    │  Frontend   │    │  Functions  │    │  Services   │
@@ -247,6 +257,7 @@ const aiEnhancement = {
 ### 3.2 State Management Flow
 
 #### Zustand Store Architecture
+
 ```typescript
 // State management structure
 interface AppState {
@@ -292,7 +303,8 @@ interface AppActions {
 ### 4.1 External Service Integration
 
 #### Service Dependencies
-```
+
+``` text
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Netlify       │    │   OpenAI        │    │   Cloudinary    │
 │   Platform      │    │   API           │    │   (Optional)    │
@@ -311,6 +323,7 @@ interface AppActions {
 ```
 
 #### API Integration Points
+
 ```yaml
 # External API integrations
 integrations:
@@ -339,7 +352,8 @@ integrations:
 ### 4.2 Mesh Layer Integration
 
 #### Cross-Layer Communication
-```
+
+``` text
 Business Layer (React)
     ↓ HTTP Requests
 Agency Layer (Security & Auth)
@@ -354,6 +368,7 @@ External Services (APIs)
 ```
 
 #### Layer-Specific Responsibilities
+
 ```yaml
 # Layer responsibilities
 mesh_layers:
@@ -413,7 +428,8 @@ mesh_layers:
 ### 5.1 Security Layers
 
 #### Multi-Layer Security Model
-```
+
+``` text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              Security Layers                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
@@ -438,6 +454,7 @@ mesh_layers:
 ```
 
 #### Security Implementation
+
 ```yaml
 # Security measures
 security_measures:
@@ -465,7 +482,8 @@ security_measures:
 ### 6.1 Performance Optimization Strategy
 
 #### Multi-Level Caching
-```
+
+``` text
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Browser       │    │   CDN           │    │   Application   │
 │   Cache         │    │   Cache         │    │   Cache         │
@@ -477,6 +495,7 @@ security_measures:
 ```
 
 #### Performance Targets
+
 ```yaml
 # Performance targets
 performance_targets:
@@ -500,6 +519,7 @@ performance_targets:
 ### 6.2 Scalability Architecture
 
 #### Horizontal Scaling Strategy
+
 ```yaml
 # Scaling strategy
 scaling_strategy:
@@ -527,7 +547,8 @@ scaling_strategy:
 ### 7.1 Deployment Pipeline
 
 #### CI/CD Pipeline
-```
+
+``` text
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
 │   Code      │───▶│   Build     │───▶│   Test      │───▶│   Deploy    │
 │  Repository │    │   Process   │    │   Suite     │    │   Netlify   │
@@ -541,6 +562,7 @@ scaling_strategy:
 ```
 
 #### Environment Strategy
+
 ```yaml
 # Environment configuration
 environments:
@@ -574,7 +596,8 @@ environments:
 ### 8.1 Monitoring Architecture
 
 #### Monitoring Stack
-```
+
+``` text
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Application   │    │   Infrastructure│    │   Business      │
 │   Monitoring    │    │   Monitoring    │    │   Metrics       │
@@ -598,6 +621,7 @@ environments:
 ### 8.2 Observability Implementation
 
 #### Key Metrics & Alerts
+
 ```yaml
 # Key metrics
 key_metrics:
@@ -623,18 +647,21 @@ key_metrics:
 ### 9.1 Scalability Roadmap
 
 #### Phase 1: Current Architecture (MVP)
+
 - Single-page React application
 - Netlify Functions backend
 - Basic AI enhancement
 - Template-based flyer generation
 
 #### Phase 2: Enhanced Architecture (Growth)
+
 - Micro-frontend architecture
 - Dedicated backend services
 - Advanced AI models
 - Real-time collaboration
 
 #### Phase 3: Enterprise Architecture (Scale)
+
 - Multi-tenant architecture
 - Advanced security features
 - Custom AI model training
@@ -643,6 +670,7 @@ key_metrics:
 ### 9.2 Technology Evolution
 
 #### Planned Technology Updates
+
 ```yaml
 # Technology roadmap
 technology_roadmap:
@@ -668,6 +696,7 @@ technology_roadmap:
 ### 10.1 Architecture Review Checklist
 
 #### Technical Validation
+
 - [x] **Scalability**: Architecture supports growth requirements
 - [x] **Performance**: Meets performance targets and SLAs
 - [x] **Security**: Implements security best practices
@@ -675,12 +704,14 @@ technology_roadmap:
 - [x] **Maintainability**: Clear separation of concerns and modularity
 
 #### Business Validation
+
 - [x] **User Experience**: Supports smooth user workflows
 - [x] **Feature Delivery**: Enables rapid feature development
 - [x] **Cost Efficiency**: Optimized for cost-effective operation
 - [x] **Time to Market**: Supports rapid iteration and deployment
 
 #### Mesh Integration Validation
+
 - [x] **Layer Separation**: Clear boundaries between mesh layers
 - [x] **Data Flow**: Efficient data flow between components
 - [x] **Integration Points**: Well-defined integration interfaces
@@ -689,6 +720,7 @@ technology_roadmap:
 ### 10.2 Architecture Metrics
 
 #### Success Metrics
+
 ```yaml
 # Architecture success metrics
 success_metrics:
@@ -713,4 +745,4 @@ success_metrics:
 **Architecture Diagram Specification Version:** 1.0  
 **Created:** 2024-01-15  
 **Last Modified:** 2024-01-15  
-**Next Review:** 2024-04-15 
+**Next Review:** 2024-04-15

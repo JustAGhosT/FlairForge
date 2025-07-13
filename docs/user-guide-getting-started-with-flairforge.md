@@ -15,12 +15,15 @@
 ---
 
 ## 1. TL;DR
+
 Create professional flyers in minutes using AI-powered templates and intelligent content enhancement. Upload your content, choose a template, and let FlairForge generate stunning promotional materials automatically.
 
 ## 2. Introduction
+
 FlairForge leverages the Cognitive Mesh's AI capabilities to transform your content into professional flyers. The system combines template management, AI content enhancement, and intelligent layout optimization to deliver high-quality marketing materials.
 
 **Key Benefits:**
+
 - **AI-Powered Enhancement**: Automatically improve text, images, and layouts
 - **Professional Templates**: Pre-designed templates for various use cases
 - **Real-time Preview**: See changes instantly as you work
@@ -31,27 +34,32 @@ FlairForge leverages the Cognitive Mesh's AI capabilities to transform your cont
 ## 3. Quick Start (≈ 5 minutes)
 
 ### 1. Access the Feature
+
 - **Navigation path**: Open your browser and go to `https://flairforge.netlify.app`
 - **Screenshot #1**: [Insert placeholder] - Main dashboard with "Create New Flyer" button
 
 ### 2. First Interaction
+
 - Click "Create New Flyer" to start your first project
 - The system will guide you through the workflow steps
 - **Screenshot #2**: [Insert placeholder] - Workflow progress indicator
 
 ### 3. See Results
+
 - Upload a logo or image for your flyer
 - Enter basic content (title, description, contact info)
 - Watch as AI enhances your content and generates a preview
 - **Screenshot #3**: [Insert placeholder] - AI-enhanced flyer preview
 
 ### 4. Next Steps
+
 - Continue to Core Workflows section to learn advanced features
 - Explore different templates and customization options
 
 ## 4. Core Workflows (≈ 20 minutes)
 
 ### Workflow 1 – Create a Promotional Flyer
+
 *Purpose*: Generate professional promotional materials for events, products, or services  
 *Mesh Intelligence*: AI analyzes your content and suggests improvements for maximum impact
 
@@ -68,6 +76,7 @@ FlairForge leverages the Cognitive Mesh's AI capabilities to transform your cont
 > **Pro-tip**: The more specific your content, the better AI can enhance it. Include details like dates, prices, and unique selling points.
 
 ### Workflow 2 – Batch Flyer Generation
+
 *Purpose*: Create multiple flyers with consistent branding for different campaigns
 
 | Step | Action                     | Expected Result               | Tips / Troubleshooting              |
@@ -80,12 +89,14 @@ FlairForge leverages the Cognitive Mesh's AI capabilities to transform your cont
 | 6    | Download batch             | ZIP file with all flyers      | Files named by row identifier       |
 
 ### Advanced Options
+
 - **Custom Templates**: Upload your own design files (PSD, AI, Figma)
 - **Brand Kit Integration**: Save colors, fonts, and logos for reuse
 - **API Access**: Integrate with your existing marketing tools
 - **Collaboration**: Share projects with team members
 
 ## 5. Understanding Mesh Intelligence
+
 - **Adaptive Behavior**: The system learns from your preferences and improves suggestions over time
 - **Contextual Assistance**: AI provides relevant suggestions based on your industry and content type
 - **Performance Optimization**: Templates and assets are optimized for fast loading and high-quality output
@@ -101,12 +112,14 @@ FlairForge leverages the Cognitive Mesh's AI capabilities to transform your cont
 | "Colors look different"      | Monitor calibration      | Use standard RGB      | Calibrate monitor for print work |
 
 ## 7. Getting Help & Feedback
+
 - **Self-Service**: Check the [FlairForge Knowledge Base](link-to-kb)
 - **Community Forum**: Ask questions and share tips with other users
 - **In-App Support**: Click the help icon (?) in the top-right corner
 - **Provide Feedback**: Use the feedback widget to improve AI suggestions
 
 ## 8. Glossary of Terms
+
 | Term                  | Definition                                                 |
 | --------------------- | ---------------------------------------------------------- |
 | **Template**          | Pre-designed flyer layout with placeholders for content    |
@@ -117,6 +130,7 @@ FlairForge leverages the Cognitive Mesh's AI capabilities to transform your cont
 | **Export**            | Download flyer in various formats (PNG, PDF, JPG)          |
 
 ## 9. Revision History
+
 | Version | Date       | Author          | Changes                     |
 | ------- | ---------- | --------------- | --------------------------- |
 | 1.0     | 2024-01-15 | FlairForge Team | Initial user guide creation |

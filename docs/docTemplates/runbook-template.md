@@ -11,14 +11,17 @@
 ## Service Overview
 
 ### Purpose
+
 [Brief description of what this service does and its role in the Cognitive Mesh]
 
 ### Business Impact
+
 **High Impact:** [What happens if this service fails]  
 **Medium Impact:** [Degraded functionality scenarios]  
 **Low Impact:** [Minor issues and their effects]  
 
 ### Service Level Objectives (SLOs)
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Availability | 99.9% | Uptime monitoring |
@@ -29,7 +32,8 @@
 ## System Architecture
 
 ### Mesh Integration
-```
+
+```text
 [ASCII diagram or link to architecture diagram showing how this service fits in the mesh]
 
 Foundation Layer
@@ -48,6 +52,7 @@ Dependent Services
 ```
 
 ### Key Dependencies
+
 | Dependency | Type | Impact if Down | Contact |
 |------------|------|----------------|---------|
 | [Service A] | Critical | Service fails | [Team/Person] |
@@ -57,6 +62,7 @@ Dependent Services
 ## Monitoring & Alerting
 
 ### Key Metrics
+
 | Metric | Dashboard Link | Normal Range | Alert Threshold |
 |--------|----------------|--------------|-----------------|
 | CPU Usage | [Link] | 10-60% | >80% |
@@ -65,11 +71,13 @@ Dependent Services
 | Error Rate | [Link] | 0-0.05% | >0.1% |
 
 ### Alert Channels
+
 - **Critical Alerts**: PagerDuty → On-call engineer
 - **Warning Alerts**: Slack #mesh-alerts
 - **Info Alerts**: Email digest
 
 ### Dashboards
+
 - **Service Overview**: [Grafana/DataDog link]
 - **Mesh Topology**: [Mesh monitoring dashboard]
 - **Performance**: [APM dashboard]
@@ -80,6 +88,7 @@ Dependent Services
 ### Health Checks
 
 #### Basic Health Check
+
 ```bash
 # Check service health
 curl -s https://[service-url]/health | jq
@@ -94,6 +103,7 @@ curl -s https://[service-url]/health | jq
 ```
 
 #### Detailed Health Check
+
 ```bash
 # Comprehensive health check
 curl -s https://[service-url]/health/detailed | jq
@@ -108,6 +118,7 @@ kubectl get pods -l app=[service-name]
 ### Service Restart
 
 #### Rolling Restart (Preferred)
+
 ```bash
 # Kubernetes rolling restart
 kubectl rollout restart deployment/[service-name]
@@ -120,6 +131,7 @@ kubectl exec -it [pod-name] -- curl localhost:8080/health
 ```
 
 #### Emergency Restart
+
 ```bash
 # If rolling restart fails
 kubectl delete pods -l app=[service-name]
@@ -132,6 +144,7 @@ kubectl scale deployment [service-name] --replicas=3
 ### Scaling Operations
 
 #### Horizontal Scaling
+
 ```bash
 # Scale up for high load
 kubectl scale deployment [service-name] --replicas=5
@@ -144,6 +157,7 @@ kubectl get hpa [service-name]
 ```
 
 #### Vertical Scaling
+
 ```bash
 # Update resource limits
 kubectl patch deployment [service-name] -p='{"spec":{"template":{"spec":{"containers":[{"name":"[container]","resources":{"limits":{"memory":"2Gi","cpu":"1000m"}}}]}}}}'
@@ -155,6 +169,7 @@ kubectl rollout restart deployment/[service-name]
 ### Configuration Updates
 
 #### Environment Variables
+
 ```bash
 # Update config via ConfigMap
 kubectl edit configmap [service-name]-config
@@ -167,6 +182,7 @@ kubectl exec -it [pod-name] -- env | grep [VARIABLE]
 ```
 
 #### Mesh Configuration
+
 ```bash
 # Update mesh settings
 mesh-cli config update [service-name] --layer=[layer] --capability=[capability]
@@ -180,29 +196,33 @@ mesh-cli status [service-name]
 ### Severity Levels
 
 #### P0 - Critical (Service Down)
-**Response Time:** Immediate (< 5 minutes)
-1. **Acknowledge alert** in PagerDuty
-2. **Check service status**: Run health checks above
-3. **Review recent changes**: Check deployment history
-4. **Escalate immediately** if not resolved in 15 minutes
-5. **Communication**: Update status page and notify stakeholders
+
+1. **Response Time:** Immediate (< 5 minutes)
+2. **Acknowledge alert** in PagerDuty
+3. **Check service status**: Run health checks above
+4. **Review recent changes**: Check deployment history
+5. **Escalate immediately** if not resolved in 15 minutes
+6. **Communication**: Update status page and notify stakeholders
 
 #### P1 - High (Degraded Performance)
-**Response Time:** < 30 minutes
-1. **Acknowledge alert** and assign owner
-2. **Investigate metrics**: Check dashboards for anomalies
-3. **Check dependencies**: Verify upstream services
-4. **Apply immediate fixes**: Scale if needed
-5. **Monitor closely**: Ensure stability
+
+1. **Response Time:** < 30 minutes
+2. **Acknowledge alert** and assign owner
+3. **Investigate metrics**: Check dashboards for anomalies
+4. **Check dependencies**: Verify upstream services
+5. **Apply immediate fixes**: Scale if needed
+6. **Monitor closely**: Ensure stability
 
 #### P2 - Medium (Minor Issues)
-**Response Time:** < 4 hours
-1. **Triage issue** during business hours
-2. **Investigate root cause**
-3. **Plan resolution**
-4. **Implement fix** in next maintenance window
+
+1. **Response Time:** < 4 hours
+2. **Triage issue** during business hours
+3. **Investigate root cause**
+4. **Plan resolution**
+5. **Implement fix** in next maintenance window
 
 ### Escalation Matrix
+
 | Level | Contact | When to Escalate |
 |-------|---------|------------------|
 | L1 | On-call Engineer | All alerts |
@@ -215,6 +235,7 @@ mesh-cli status [service-name]
 ### Service Won't Start
 
 #### Check Resource Availability
+
 ```bash
 # Check node resources
 kubectl describe nodes
@@ -227,6 +248,7 @@ kubectl logs [pod-name] --previous
 ```
 
 #### Common Issues
+
 | Symptom | Likely Cause | Solution |
 |---------|--------------|----------|
 | ImagePullBackOff | Wrong image tag | Check deployment.yaml image version |
@@ -236,6 +258,7 @@ kubectl logs [pod-name] --previous
 ### High Response Times
 
 #### Investigation Steps
+
 ```bash
 # Check current performance
 kubectl top pods -l app=[service-name]
@@ -248,6 +271,7 @@ curl https://[service-url]/metrics | grep response_time
 ```
 
 #### Common Causes
+
 - **High CPU/Memory**: Scale horizontally or vertically
 - **Database slow**: Check query performance, add indexes
 - **Network issues**: Check mesh connectivity
@@ -256,6 +280,7 @@ curl https://[service-url]/metrics | grep response_time
 ### Memory Leaks
 
 #### Detection
+
 ```bash
 # Monitor memory trends
 kubectl top pods [pod-name]
@@ -268,6 +293,7 @@ kubectl logs [pod-name] | grep -i "gc\|memory"
 ```
 
 #### Resolution
+
 1. **Immediate**: Restart affected pods
 2. **Short-term**: Increase memory limits
 3. **Long-term**: Investigate and fix memory leaks in code
@@ -275,6 +301,7 @@ kubectl logs [pod-name] | grep -i "gc\|memory"
 ### Mesh Connectivity Issues
 
 #### Diagnosis
+
 ```bash
 # Check mesh status
 mesh-cli status [service-name]
@@ -287,6 +314,7 @@ mesh-cli config show [service-name]
 ```
 
 #### Common Fixes
+
 ```bash
 # Refresh mesh credentials
 mesh-cli auth refresh [service-name]
@@ -303,6 +331,7 @@ kubectl get pods -n mesh-system
 ### Deployment Process
 
 #### Pre-Deployment Checklist
+
 - [ ] Code reviewed and approved
 - [ ] Tests passing in CI/CD
 - [ ] Database migrations tested
@@ -310,6 +339,7 @@ kubectl get pods -n mesh-system
 - [ ] Stakeholders notified
 
 #### Deployment Steps
+
 ```bash
 # 1. Deploy to staging
 kubectl apply -f k8s/staging/ -n staging
@@ -328,6 +358,7 @@ curl https://[production-url]/health
 ```
 
 #### Post-Deployment Verification
+
 - [ ] Health checks passing
 - [ ] Key metrics within normal ranges
 - [ ] No error spikes in logs
@@ -337,6 +368,7 @@ curl https://[production-url]/health
 ### Database Maintenance
 
 #### Backup Procedures
+
 ```bash
 # Create database backup
 kubectl exec -it [db-pod] -- [backup-command]
@@ -349,6 +381,7 @@ kubectl exec -it [db-pod] -- [backup-command]
 ```
 
 #### Index Maintenance
+
 ```bash
 # Check index usage
 [database-specific-commands]
@@ -363,6 +396,7 @@ kubectl exec -it [db-pod] -- [backup-command]
 ### Security Updates
 
 #### Patching Process
+
 1. **Security scanning**: Run automated security scans
 2. **Vulnerability assessment**: Review critical vulnerabilities
 3. **Patch testing**: Test patches in staging environment
@@ -372,6 +406,7 @@ kubectl exec -it [db-pod] -- [backup-command]
 ## Disaster Recovery
 
 ### Backup Strategy
+
 - **Database**: Daily automated backups with 30-day retention
 - **Configuration**: Git-based configuration management
 - **Secrets**: Vault-based secret management
@@ -380,6 +415,7 @@ kubectl exec -it [db-pod] -- [backup-command]
 ### Recovery Procedures
 
 #### Data Loss Scenario
+
 ```bash
 # 1. Stop application
 kubectl scale deployment [service-name] --replicas=0
@@ -395,6 +431,7 @@ kubectl scale deployment [service-name] --replicas=3
 ```
 
 #### Complete Service Loss
+
 ```bash
 # 1. Deploy in alternate region/cluster
 kubectl apply -f k8s/production/ --context=[alternate-cluster]
@@ -410,6 +447,7 @@ kubectl apply -f k8s/production/ --context=[alternate-cluster]
 ```
 
 ### RTO/RPO Targets
+
 - **Recovery Time Objective (RTO)**: 4 hours
 - **Recovery Point Objective (RPO)**: 1 hour
 - **Mean Time to Recovery (MTTR)**: 30 minutes
@@ -417,6 +455,7 @@ kubectl apply -f k8s/production/ --context=[alternate-cluster]
 ## Contacts & Resources
 
 ### On-Call Information
+
 | Role | Primary | Backup | Escalation |
 |------|---------|--------|------------|
 | Engineering | [Name/PagerDuty] | [Name/PagerDuty] | [Manager] |
@@ -424,6 +463,7 @@ kubectl apply -f k8s/production/ --context=[alternate-cluster]
 | Product | [Name/Phone] | [Name/Phone] | [Product Manager] |
 
 ### Important Links
+
 - **Service Dashboard**: [Monitoring URL]
 - **Runbook Repository**: [Git repository]
 - **Architecture Docs**: [Documentation URL]
@@ -432,10 +472,11 @@ kubectl apply -f k8s/production/ --context=[alternate-cluster]
 - **Incident Management**: [Incident tool URL]
 
 ### Emergency Contacts
-- **Security Team**: security@company.com
-- **Infrastructure Team**: infra@company.com
-- **Database Team**: dba@company.com
-- **Network Operations**: netops@company.com
+
+- **Security Team**: [Security](security@company.com)
+- **Infrastructure Team**: [Infrastructure](infra@company.com)
+- **Database Team**: [Database](dba@company.com)
+- **Network Operations**: [Network](netops@company.com)
 
 ## Change Log
 

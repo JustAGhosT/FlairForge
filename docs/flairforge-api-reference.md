@@ -9,11 +9,13 @@
 **Last Updated**: 2024-01-15
 
 ## TL;DR
+
 RESTful API for generating professional flyers using AI-powered templates and content enhancement. Integrate flyer generation into your applications with simple HTTP requests.
 
 ## Quick Start Guide
 
 ### Authentication
+
 ```bash
 # Currently no authentication required for MVP
 # Future versions will support API keys
@@ -21,6 +23,7 @@ curl -X GET https://flairforge.netlify.app/.netlify/functions/api/health
 ```
 
 ### First API Call
+
 ```bash
 # Example: Generate a flyer
 curl -X POST https://flairforge.netlify.app/.netlify/functions/api/generate-flyer \
@@ -426,6 +429,7 @@ paths:
 ## SDK and Code Examples
 
 ### JavaScript SDK
+
 ```javascript
 class FlairForgeAPI {
   constructor(baseUrl = 'https://flairforge.netlify.app/.netlify/functions/api') {
@@ -475,6 +479,7 @@ console.log('Flyer URL:', flyer.flyer_url);
 ```
 
 ### Python SDK
+
 ```python
 import requests
 import base64
@@ -528,6 +533,7 @@ print(f"Flyer URL: {flyer['flyer_url']}")
 ## Webhooks
 
 ### Webhook Events
+
 | Event             | Description                | Mesh Layer |
 | ----------------- | -------------------------- | ---------- |
 | `flyer.generated` | Flyer generation completed | Business   |
@@ -535,6 +541,7 @@ print(f"Flyer URL: {flyer['flyer_url']}")
 | `error.occurred`  | Processing error           | Business   |
 
 ### Webhook Payload Example
+
 ```json
 {
   "event": "flyer.generated",
@@ -555,7 +562,8 @@ print(f"Flyer URL: {flyer['flyer_url']}")
 ## Rate Limiting
 
 ### Rate Limit Headers
-```
+
+``` text
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 99
 X-RateLimit-Reset: 1641811200
@@ -563,6 +571,7 @@ X-RateLimit-Retry-After: 60
 ```
 
 ### Best Practices
+
 - Implement exponential backoff for rate limit errors
 - Cache template data where appropriate
 - Use batch endpoints for multiple flyers
@@ -571,11 +580,13 @@ X-RateLimit-Retry-After: 60
 ## Testing and Validation
 
 ### Test Environment
+
 - **Base URL**: `https://staging-flairforge.netlify.app/.netlify/functions/api`
 - **Test Templates**: Use template IDs starting with "test-"
 - **Rate Limits**: Reduced limits for testing
 
 ### Validation Checklist
+
 - [ ] Health endpoint responds correctly
 - [ ] Flyer generation works with sample data
 - [ ] Template listing returns expected data
@@ -585,16 +596,19 @@ X-RateLimit-Retry-After: 60
 ## Support and Resources
 
 ### Documentation Links
+
 - [FlairForge User Guide](./user-guide-getting-started-with-flairforge.md)
 - [Template Gallery](https://flairforge.netlify.app/templates)
 - [API Status Page](https://status.flairforge.netlify.app)
 
 ### Support Channels
-- **Email Support**: api-support@flairforge.com
+
+- **Email Support**: [Email Support](api-support@flairforge.com)
 - **Documentation**: [FlairForge Docs](https://docs.flairforge.netlify.app)
 - **Community**: [GitHub Discussions](https://github.com/flairforge/discussions)
 
 ### Changelog
+
 - **v1.0.0** (2024-01-15): Initial API release
 - **v1.0.1** (2024-01-20): Added batch generation endpoint
 - **v1.1.0** (2024-02-01): Enhanced error responses and webhooks
@@ -602,22 +616,26 @@ X-RateLimit-Retry-After: 60
 ## Appendices
 
 ### A. Template Categories
+
 - **Promotional**: Sales, events, announcements
 - **Business**: Professional services, corporate
 - **Creative**: Artistic, design-focused layouts
 - **Simple**: Minimal, clean designs
 
 ### B. Performance Benchmarks
+
 - **Single Flyer**: 2-5 seconds average
 - **Batch Processing**: 10-30 seconds per flyer
 - **Template Loading**: < 1 second
 - **Health Check**: < 100ms
 
 ### C. Security Considerations
+
 - All requests are logged for monitoring
 - Input validation prevents injection attacks
 - Rate limiting prevents abuse
 - No sensitive data is stored
 
 ### D. Migration Guide
-Instructions for migrating from previous API versions (when applicable). 
+
+Instructions for migrating from previous API versions (when applicable).

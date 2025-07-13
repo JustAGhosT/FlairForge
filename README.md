@@ -268,7 +268,7 @@ Generates a flyer using the specified template and data.
 - `data` (Object): Flyer content data
 - `options` (Object): Generation options
 
-**Returns:** Promise<FlyerResponse>
+**Returns:** `Promise<FlyerResponse>`
 
 #### `api.getTemplates(category)`
 
@@ -278,7 +278,7 @@ Retrieves available templates.
 
 - `category` (String, optional): Filter by category
 
-**Returns:** Promise<TemplateList>
+**Returns:** `Promise<TemplateList>`
 
 ### REST API Endpoints
 
@@ -308,7 +308,7 @@ npm run dev:watch
 
 ### Project Structure
 
-```
+``` text
 flairforge/
 ├── frontend/              # React frontend
 │   ├── src/              # Source code
@@ -373,7 +373,7 @@ npm run test:coverage
 
 ### Test Structure
 
-```
+``` text
 tests/
 ├── unit/               # Unit tests
 ├── integration/        # Integration tests
@@ -418,7 +418,7 @@ describe('FlairForgeAPI', () => {
 
 ### Monitoring
 
-- **Health Checks**: `/health` endpoint
+- **Health Checks**: [`/health`](http://localhost:3001/api/health)
 - **Metrics**: Netlify Analytics integration
 - **Logs**: Netlify Function logs
 - **Error Tracking**: Sentry integration
@@ -486,7 +486,7 @@ npm run monitor:performance
 
 - 📖 **Documentation**: [Full Documentation](./docs/)
 - 💬 **Community**: [Discord](https://discord.gg/flairforge)
-- 📧 **Support**: support@flairforge.com
+- 📧 **Support**: [support@flairforge.com](mailto:support@flairforge.com)
 - 🎯 **Stack Overflow**: Tag `flairforge`
 
 ## License
@@ -505,11 +505,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For enterprise support, training, and consulting:
 
-- 📧 Email: enterprise@flairforge.com
+- 📧 Email: [enterprise@flairforge.com](mailto:enterprise@flairforge.com)
 - 🌐 Website: [flairforge.com/enterprise](https://flairforge.com/enterprise)
 
 ---
 
-**Built with ❤️ by the FlairForge team**
+## **Built with ❤️ by the FlairForge team**
 
-*Last updated: 2025-07-13*
+_Last updated: 2025-07-13

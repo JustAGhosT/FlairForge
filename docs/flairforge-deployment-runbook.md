@@ -11,14 +11,17 @@
 ## Service Overview
 
 ### Purpose
+
 FlairForge is a React-based web application that generates professional flyers using AI enhancement capabilities. The service consists of a frontend React application deployed on Netlify and backend API functions for flyer generation and template management.
 
 ### Business Impact
+
 **High Impact:** Complete service failure prevents users from generating flyers, affecting customer satisfaction and business operations  
 **Medium Impact:** AI enhancement features down, users can still create basic flyers with reduced functionality  
 **Low Impact:** Minor UI issues or non-critical features temporarily unavailable  
 
 ### Service Level Objectives (SLOs)
+
 | Metric             | Target      | Measurement                |
 | ------------------ | ----------- | -------------------------- |
 | Availability       | 99.9%       | Netlify uptime monitoring  |
@@ -30,7 +33,8 @@ FlairForge is a React-based web application that generates professional flyers u
 ## System Architecture
 
 ### Mesh Integration
-```
+
+``` text
 Frontend Layer (Netlify)
 ├── React Application: Vite + TypeScript
 ├── State Management: Zustand
@@ -50,6 +54,7 @@ External Dependencies
 ```
 
 ### Key Dependencies
+
 | Dependency       | Type      | Impact if Down            | Contact          |
 | ---------------- | --------- | ------------------------- | ---------------- |
 | Netlify Platform | Critical  | Complete service failure  | Netlify Support  |
@@ -60,6 +65,7 @@ External Dependencies
 ## Monitoring & Alerting
 
 ### Key Metrics
+
 | Metric               | Dashboard Link    | Normal Range | Alert Threshold |
 | -------------------- | ----------------- | ------------ | --------------- |
 | Build Success Rate   | Netlify Dashboard | 95-100%      | <90%            |
@@ -69,11 +75,13 @@ External Dependencies
 | Page Load Time       | Web Vitals        | 1-3s         | >5s             |
 
 ### Alert Channels
+
 - **Critical Alerts**: Netlify Status Page → Development Team
 - **Warning Alerts**: Slack #flairforge-alerts
 - **Info Alerts**: Email digest to stakeholders
 
 ### Dashboards
+
 - **Service Overview**: Netlify Dashboard
 - **Performance**: Web Vitals Dashboard
 - **Error Tracking**: Sentry Dashboard (if configured)
@@ -84,6 +92,7 @@ External Dependencies
 ### Health Checks
 
 #### Basic Health Check
+
 ```bash
 # Check frontend health
 curl -s https://[site-url].netlify.app/ | grep -q "FlairForge"
@@ -100,6 +109,7 @@ curl -s https://[site-url].netlify.app/.netlify/functions/api/health | jq
 ```
 
 #### Detailed Health Check
+
 ```bash
 # Check build status
 netlify status
@@ -119,6 +129,7 @@ curl -X POST https://[site-url].netlify.app/.netlify/functions/api/generate-flye
 ### Deployment Process
 
 #### Pre-Deployment Checklist
+
 - [ ] Code reviewed and approved
 - [ ] Tests passing in CI/CD
 - [ ] Environment variables updated
@@ -126,6 +137,7 @@ curl -X POST https://[site-url].netlify.app/.netlify/functions/api/generate-flye
 - [ ] Stakeholders notified
 
 #### Deployment Steps
+
 ```bash
 # 1. Verify local build
 cd frontend
@@ -145,6 +157,7 @@ curl https://[site-url].netlify.app/health
 ```
 
 #### Post-Deployment Verification
+
 - [ ] Frontend loads successfully
 - [ ] API endpoints responding
 - [ ] No console errors
@@ -154,6 +167,7 @@ curl https://[site-url].netlify.app/health
 ### Configuration Updates
 
 #### Environment Variables
+
 ```bash
 # Update environment variables
 netlify env:set VITE_API_BASE_URL https://[site-url].netlify.app/.netlify/functions/api
@@ -169,6 +183,7 @@ netlify env:unset VARIABLE_NAME
 ```
 
 #### Function Configuration
+
 ```bash
 # Update function timeout
 # Edit netlify.toml in backend directory
@@ -188,29 +203,33 @@ git push origin main
 ### Severity Levels
 
 #### P0 - Critical (Site Down)
-**Response Time:** Immediate (< 5 minutes)
-1. **Check Netlify Status Page** for platform issues
-2. **Verify deployment status**: `netlify status`
-3. **Check build logs** for recent failures
-4. **Rollback to previous version** if needed
-5. **Communication**: Update status page and notify stakeholders
+
+1. **Response Time:** Immediate (< 5 minutes)
+2. **Check Netlify Status Page** for platform issues
+3. **Verify deployment status**: `netlify status`
+4. **Check build logs** for recent failures
+5. **Rollback to previous version** if needed
+6. **Communication**: Update status page and notify stakeholders
 
 #### P1 - High (Major Features Down)
-**Response Time:** < 30 minutes
-1. **Check function logs**: Netlify Functions dashboard
-2. **Verify API endpoints**: Test key endpoints
-3. **Check environment variables**: Ensure all required vars set
-4. **Review recent changes**: Check git history
-5. **Apply hotfix** if possible
+
+1. **Response Time:** < 30 minutes
+2. **Check function logs**: Netlify Functions dashboard
+3. **Verify API endpoints**: Test key endpoints
+4. **Check environment variables**: Ensure all required vars set
+5. **Review recent changes**: Check git history
+6. **Apply hotfix** if possible
 
 #### P2 - Medium (Minor Issues)
-**Response Time:** < 4 hours
-1. **Triage during business hours**
-2. **Check user reports** and error logs
-3. **Plan resolution** for next deployment
-4. **Implement fix** in regular release cycle
+
+1. **Response Time:** < 4 hours
+2. **Triage during business hours**
+3. **Check user reports** and error logs
+4. **Plan resolution** for next deployment
+5. **Implement fix** in regular release cycle
 
 ### Escalation Matrix
+
 | Level | Contact             | When to Escalate               |
 | ----- | ------------------- | ------------------------------ |
 | L1    | On-call Developer   | All alerts                     |
@@ -223,6 +242,7 @@ git push origin main
 ### Build Failures
 
 #### Common Build Issues
+
 | Symptom               | Likely Cause        | Solution                            |
 | --------------------- | ------------------- | ----------------------------------- |
 | Build timeout         | Large dependencies  | Optimize bundle size, check imports |
@@ -231,6 +251,7 @@ git push origin main
 | Environment variables | Missing VITE_ vars  | Set required env vars in Netlify    |
 
 #### Build Debugging
+
 ```bash
 # Test build locally
 cd frontend
@@ -249,6 +270,7 @@ npx madge --circular src/
 ### Function Errors
 
 #### Common Function Issues
+
 | Symptom          | Likely Cause              | Solution                                |
 | ---------------- | ------------------------- | --------------------------------------- |
 | Function timeout | Long-running operations   | Optimize code, increase timeout         |
@@ -257,6 +279,7 @@ npx madge --circular src/
 | CORS issues      | Frontend-backend mismatch | Verify CORS configuration               |
 
 #### Function Debugging
+
 ```bash
 # Test function locally
 netlify dev
@@ -276,6 +299,7 @@ cat backend/netlify/functions/api.js
 ### Performance Issues
 
 #### Frontend Performance
+
 ```bash
 # Check bundle size
 npm run build
@@ -289,6 +313,7 @@ npm run build -- --analyze
 ```
 
 #### API Performance
+
 ```bash
 # Test API response times
 curl -w "@curl-format.txt" -o /dev/null -s \
@@ -304,6 +329,7 @@ netlify functions:logs --follow
 ### Environment Variable Issues
 
 #### Debugging Environment Variables
+
 ```bash
 # List all environment variables
 netlify env:list
@@ -323,18 +349,21 @@ netlify env:get VARIABLE_NAME
 ### Regular Maintenance Tasks
 
 #### Weekly
+
 - [ ] Review build success rates
 - [ ] Check function error rates
 - [ ] Monitor performance metrics
 - [ ] Update dependencies if needed
 
 #### Monthly
+
 - [ ] Review and update environment variables
 - [ ] Check for security updates
 - [ ] Review and optimize bundle size
 - [ ] Update documentation
 
 #### Quarterly
+
 - [ ] Review SLOs and adjust targets
 - [ ] Update runbook procedures
 - [ ] Review and update monitoring
@@ -343,6 +372,7 @@ netlify env:get VARIABLE_NAME
 ### Dependency Updates
 
 #### Frontend Dependencies
+
 ```bash
 # Check for updates
 npm outdated
@@ -360,6 +390,7 @@ npm run test
 ```
 
 #### Backend Dependencies
+
 ```bash
 cd backend
 npm outdated
@@ -370,6 +401,7 @@ npm test
 ### Security Maintenance
 
 #### Security Scanning
+
 ```bash
 # Run security audit
 npm audit
@@ -382,6 +414,7 @@ npm update [package-name]
 ```
 
 #### Environment Variable Security
+
 - [ ] Rotate API keys regularly
 - [ ] Review access permissions
 - [ ] Monitor for unauthorized access
@@ -390,6 +423,7 @@ npm update [package-name]
 ## Disaster Recovery
 
 ### Backup Strategy
+
 - **Code**: Git repository with multiple remotes
 - **Configuration**: Environment variables in Netlify
 - **Templates**: EJS files in version control
@@ -398,6 +432,7 @@ npm update [package-name]
 ### Recovery Procedures
 
 #### Complete Site Loss
+
 ```bash
 # 1. Verify git repository integrity
 git status
@@ -417,6 +452,7 @@ curl https://[site-url].netlify.app/health
 ```
 
 #### Function Failure Recovery
+
 ```bash
 # 1. Check function logs
 netlify functions:logs
@@ -432,6 +468,7 @@ curl https://[site-url].netlify.app/.netlify/functions/api/health
 ```
 
 ### RTO/RPO Targets
+
 - **Recovery Time Objective (RTO)**: 30 minutes
 - **Recovery Point Objective (RPO)**: 5 minutes
 - **Mean Time to Recovery (MTTR)**: 15 minutes
@@ -439,6 +476,7 @@ curl https://[site-url].netlify.app/.netlify/functions/api/health
 ## Contacts & Resources
 
 ### On-Call Information
+
 | Role        | Primary      | Backup       | Escalation            |
 | ----------- | ------------ | ------------ | --------------------- |
 | Development | [Name/Slack] | [Name/Slack] | [Engineering Manager] |
@@ -446,7 +484,8 @@ curl https://[site-url].netlify.app/.netlify/functions/api/health
 | Product     | [Name/Phone] | [Name/Phone] | [Product Manager]     |
 
 ### Important Links
-- **Netlify Dashboard**: https://app.netlify.com/sites/[site-name]
+
+- **Netlify Dashboard**: [Dashboard](https://app.netlify.com/sites/)
 - **Git Repository**: [GitHub/GitLab URL]
 - **Documentation**: [Documentation URL]
 - **API Documentation**: [API docs URL]
@@ -454,8 +493,9 @@ curl https://[site-url].netlify.app/.netlify/functions/api/health
 - **Monitoring**: [Monitoring dashboard URL]
 
 ### Emergency Contacts
-- **Netlify Support**: https://www.netlify.com/support/
-- **OpenAI Support**: https://help.openai.com/
+
+- **Netlify Support**: [Netlify Support](https://www.netlify.com/support/)
+- **OpenAI Support**: [OpenAPI](https://help.openai.com/)
 - **Development Team**: [Team Slack channel]
 - **Infrastructure Team**: [Infra team contact]
 
@@ -471,4 +511,4 @@ curl https://[site-url].netlify.app/.netlify/functions/api/health
 
 **Runbook Version:** 1.0  
 **Last Reviewed:** 2024-01-15  
-**Next Review Due:** 2024-07-15 
+**Next Review Due:** 2024-07-15

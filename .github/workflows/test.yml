@@ -139,6 +139,9 @@ jobs:
   # Performance Tests
   performance:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: https://flairforge.netlify.app
+      TEST_BASE_URL: ${{ secrets.TEST_BASE_URL }}
     defaults:
       run:
         working-directory: ./frontend
@@ -163,10 +166,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install k6
 
+      - name: Set BASE_URL from secret if present
+        run: |
+          if [ -n "$TEST_BASE_URL" ]; then
+            echo "BASE_URL=$TEST_BASE_URL" >> $GITHUB_ENV
+          fi
+
       - name: Run performance tests
         run: npm run test:performance
         env:
-          BASE_URL: ${{ secrets.TEST_BASE_URL || 'https://flairforge.netlify.app' }}
+          BASE_URL: ${{ env.BASE_URL }}
 
   # Security Tests
   security:

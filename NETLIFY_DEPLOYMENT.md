@@ -4,7 +4,8 @@
 
 This project is structured as a monorepo with separate frontend and backend directories:
 
-```
+``` text
+
 FlairForge/
 ├── frontend/                 # React + Vite frontend
 │   ├── netlify.toml         # Netlify configuration
@@ -37,18 +38,22 @@ FlairForge/
 ## Deployment Strategy
 
 ### Option 1: Frontend Only (Recommended for MVP)
+
 Deploy only the frontend to Netlify with API calls to external services.
 
 **Build Settings:**
+
 - **Base directory:** `frontend`
 - **Build command:** `npm run build`
 - **Publish directory:** `dist`
 - **Node version:** 18
 
 ### Option 2: Full Stack (Frontend + Backend Functions)
+
 Deploy both frontend and backend using Netlify Functions.
 
 **Build Settings:**
+
 - **Base directory:** `frontend`
 - **Build command:** `npm run build`
 - **Publish directory:** `dist`
@@ -57,6 +62,7 @@ Deploy both frontend and backend using Netlify Functions.
 ## Required Files for Deployment
 
 ### ✅ Frontend Files
+
 - `frontend/netlify.toml` - Netlify configuration
 - `frontend/package.json` - Dependencies and scripts
 - `frontend/vite.config.ts` - Build configuration
@@ -66,12 +72,14 @@ Deploy both frontend and backend using Netlify Functions.
 - `frontend/src/App.tsx` - Main React component
 
 ### ✅ Backend Files (for Option 2)
+
 - `backend/netlify/functions/api.js` - Serverless function
 - `backend/package.json` - Backend dependencies
 - `backend/templates/` - EJS template files
 - `backend/data/` - Data files
 
 ### ✅ Configuration Files
+
 - `frontend/env.example` - Environment variables template
 - `.gitignore` - Git ignore rules
 - `README.md` - Project documentation
@@ -81,12 +89,14 @@ Deploy both frontend and backend using Netlify Functions.
 Set these in the Netlify dashboard under Site Settings > Environment Variables:
 
 ### Required Variables
-```
+
+``` text
 VITE_API_BASE_URL=https://your-site.netlify.app/.netlify/functions/api
 ```
 
 ### Optional Variables
-```
+
+``` text
 VITE_ENABLE_AI_ENHANCEMENT=true
 VITE_ENABLE_PREVIEW=true
 VITE_GOOGLE_ANALYTICS_ID=your-ga-id
@@ -98,23 +108,27 @@ VITE_CLOUDINARY_UPLOAD_PRESET=your-upload-preset
 ## Deployment Steps
 
 ### 1. Connect Repository
+
 1. Log in to Netlify
 2. Click "New site from Git"
 3. Connect your GitHub/GitLab/Bitbucket repository
 4. Select the FlairForge repository
 
 ### 2. Configure Build Settings
+
 - **Base directory:** `frontend`
 - **Build command:** `npm run build`
 - **Publish directory:** `dist`
 - **Node version:** 18
 
 ### 3. Set Environment Variables
+
 1. Go to Site Settings > Environment Variables
 2. Add the required variables listed above
 3. Set deployment context (Production, Deploy Preview, Branch Deploy)
 
 ### 4. Deploy
+
 1. Click "Deploy site"
 2. Netlify will automatically build and deploy your site
 3. Monitor the build logs for any issues
@@ -122,18 +136,22 @@ VITE_CLOUDINARY_UPLOAD_PRESET=your-upload-preset
 ## Post-Deployment
 
 ### 1. Custom Domain (Optional)
+
 1. Go to Site Settings > Domain management
 2. Add your custom domain
 3. Configure DNS settings
 
 ### 2. HTTPS (Automatic)
+
 Netlify automatically provides SSL certificates for all sites.
 
 ### 3. Form Handling (If Needed)
+
 1. Add `netlify` attribute to forms
 2. Configure form notifications in Site Settings
 
 ### 4. Analytics (Optional)
+
 1. Add Google Analytics ID to environment variables
 2. Configure analytics in your React components
 
@@ -175,12 +193,14 @@ netlify dev                    # Test locally with Netlify
 ## Performance Optimization
 
 ### Frontend
+
 - Vite provides optimized builds by default
 - CSS modules for scoped styling
 - Code splitting with React Router
 - Static asset optimization
 
 ### Backend Functions
+
 - Serverless functions scale automatically
 - Cold start optimization with minimal dependencies
 - Caching strategies for template rendering
@@ -198,4 +218,4 @@ netlify dev                    # Test locally with Netlify
 - Netlify provides built-in analytics
 - Function invocation logs available
 - Error tracking and performance monitoring
-- Custom analytics integration possible 
+- Custom analytics integration possible

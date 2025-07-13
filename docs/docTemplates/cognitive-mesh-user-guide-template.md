@@ -15,14 +15,17 @@
 ---
 
 ## 1. TL;DR
+
 A two-sentence overview of what the user will accomplish and the value delivered by this feature.
 
 ## 2. Introduction
+
 - Brief explanation of the feature in the context of Cognitive Mesh
 - Key benefits for the user
 - High-level diagram of where this feature sits in the Mesh (optional link to architecture)
 
 ## 3. Quick Start (≈ 5 minutes)
+
 1. **Access the Feature**  
    - Navigation path: *Home ▸ Features ▸ [Feature Name]*  
    - Screenshot #1 (insert placeholder): UI entry point
@@ -41,6 +44,7 @@ A two-sentence overview of what the user will accomplish and the value delivered
 ## 4. Core Workflows (≈ 20 minutes)
 
 ### Workflow 1 – *Primary Use Case*
+
 *Purpose*: *What business problem this solves*  
 *Mesh Intelligence*: *How the Reasoning/Metacognitive layer adds value*
 
@@ -53,14 +57,17 @@ A two-sentence overview of what the user will accomplish and the value delivered
 > **Pro-tip:** Explain how adaptive learning improves results the more you use the feature.
 
 ### Workflow 2 – *Secondary Use Case*
+
 Repeat table or bullet steps as above.
 
 ### Advanced Options
+
 - *Custom configurations* (e.g., change model, enable batch mode)
 - *Integration hooks* (webhooks, SDK snippets)
 - *Automation tips* (trigger via Workflow Builder Skill Pack)
 
 ## 5. Understanding Mesh Intelligence
+
 - **Adaptive Behavior**: How the Metacognitive layer learns from user feedback.
 - **Contextual Assistance**: Inline suggestions and next-best actions.
 - **Performance Optimization**: Auto-scaling and dynamic routing under the hood.
@@ -74,12 +81,14 @@ Repeat table or bullet steps as above.
 | “Permission denied” | Missing Agency-layer role | Contact admin for access | Check role matrix |
 
 ## 7. Getting Help & Feedback
+
 - **Self-Service**: Search the *Cognitive Mesh Knowledge Base* (link)
 - **Community Forum**: Ask peers and product experts (link)
 - **In-App Support**: Click Help ▸ Contact Support  
 - **Provide Feedback**: Thumbs-up/down widget sends data to Metacognitive layer
 
 ## 8. Glossary of Terms
+
 | Term | Definition |
 |------|-----------|
 | *Skill Pack* | A plug-and-play module delivering mesh capability |
@@ -87,6 +96,7 @@ Repeat table or bullet steps as above.
 | *Agency Layer* | Handles security, permissions, and orchestration |
 
 ## 9. Revision History
+
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2025-07-10 | *Author* | Initial template |

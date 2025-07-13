@@ -32,7 +32,8 @@ Describe the mesh capability under test, its criticality, mesh layers touched, a
 | MTTR (prod) | Minutes | < 15 |
 
 ## 4. Mesh Testing Pyramid
-```
+
+``` text
         Exploratory / Chaos (5%)
       System & E2E (10%)
    Integration & Contract (20%)
@@ -42,20 +43,24 @@ Describe the mesh capability under test, its criticality, mesh layers touched, a
 ## 5. Test Types & Scope
 
 ### 5.1 Unit & Component Tests
+
 - Service methods, edge-case logic, failure paths.
 - Mock mesh-layer dependencies where feasible.
 
 ### 5.2 Contract & Integration Tests
+
 - OpenAPI schema validation with Dredd/Schemathesis.
 - Cross-layer data contract checks (e.g., Foundation ↔ Reasoning JSON schemas).
 - Security integration with Agency Layer (authn/authz).
 
 ### 5.3 System & End-To-End (E2E)
+
 - Happy-path user journeys across Business ↔ Agency ↔ Reasoning layers.
 - Non-functional: performance, volume, soak.
 - AI evaluation harness for ground-truth comparisons.
 
 ### 5.4 Specialized Mesh Tests
+
 - **AI Model Tests**: Baseline metrics, bias evaluation, drift simulation.
 - **Self-Healing/Metacognitive Tests**: Verify learning loop actions, resilience to noisy feedback.
 - **Security & Compliance**: Pen-tests, OWASP API checks, PII redaction validation.
