@@ -1,5 +1,5 @@
 // AI content enhancement utilities
-import { EnhancedContent, OriginalContent, FlyerType } from '../types';
+import { EnhancedContent, FlyerType, OriginalContent } from '../types';
 
 export class AIEnhancer {
   enhanceContent(original: OriginalContent, flyerType: FlyerType): EnhancedContent {
@@ -55,4 +55,41 @@ export class AIEnhancer {
         return 'The Cheesy Pig brings you premium pork products made with dedication to quality and tradition. Try our delicious offerings today!';
     }
   }
+}
+
+// Named export for enhanceContent matching test expectations
+export async function enhanceContent(content: string) {
+  if (!content || !content.trim()) {
+    throw new Error('Content cannot be empty');
+  }
+  const response = await fetch('/api/enhance-content', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content })
+  });
+  if (!response.ok) {
+    throw new Error('Failed to enhance content');
+  }
+  const data = await response.json();
+  return data.data;
+}
+
+export async function enhanceImage(file: File) {
+  if (!file.type.startsWith('image/')) {
+    throw new Error('Invalid image file type');
+  }
+  if (file.size > 5 * 1024 * 1024) {
+    throw new Error('Image file too large');
+  }
+  const formData = new FormData();
+  formData.append('image', file);
+  const response = await fetch('/api/enhance-image', {
+    method: 'POST',
+    body: formData
+  });
+  if (!response.ok) {
+    throw new Error('Failed to enhance image');
+  }
+  const data = await response.json();
+  return data.data;
 }

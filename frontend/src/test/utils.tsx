@@ -1,7 +1,8 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, RenderOptions } from '@testing-library/react'
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import '@testing-library/jest-dom';
+import { RenderOptions, render } from '@testing-library/react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 // Create a custom render function that includes providers
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
@@ -29,8 +30,8 @@ const customRender = (
 ) => render(ui, { wrapper: AllTheProviders, ...options })
 
 // Re-export everything
-export * from '@testing-library/react'
-export { customRender as render }
+export * from '@testing-library/react';
+export { customRender as render };
 
 // Test data helpers
 export const mockFlyerData = {
@@ -46,11 +47,10 @@ export const mockFlyerData = {
 
 export const mockTemplateData = {
   id: 'cheesy-pig',
-  name: 'Cheesy Pig',
+  title: 'Cheesy Pig',
   description: 'A fun and engaging template',
-  preview: '/templates/cheesy-pig-preview.png',
-  category: 'food'
-}
+  image: '/templates/cheesy-pig-preview.png'
+};
 
 // Mock API responses
 export const mockApiResponses = {
@@ -69,22 +69,4 @@ export const mockApiResponses = {
       suggestions: ['Add more details', 'Include contact information']
     }
   }
-}
-
-// Custom matchers for testing
-export const expectElementToBeVisible = (element: HTMLElement) => {
-  expect(element).toBeInTheDocument()
-  expect(element).toBeVisible()
-}
-
-export const expectElementToHaveText = (element: HTMLElement, text: string) => {
-  expect(element).toHaveTextContent(text)
-}
-
-export const expectElementToHaveAttribute = (
-  element: HTMLElement,
-  attribute: string,
-  value: string
-) => {
-  expect(element).toHaveAttribute(attribute, value)
 } 

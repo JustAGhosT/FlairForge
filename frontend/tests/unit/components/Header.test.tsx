@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '../../../src/test/utils'
+import { describe, expect, it } from 'vitest'
 import Header from '../../../src/components/Header/Header'
+import styles from '../../../src/components/Header/Header.module.css'
+import { render, screen } from '../../../src/test/utils'
 
 describe('Header Component', () => {
   it('renders the logo', () => {
@@ -24,13 +25,13 @@ describe('Header Component', () => {
     expect(nav).toBeInTheDocument()
     
     const links = screen.getAllByRole('link')
-    expect(links).toHaveLength(4) // Logo + 3 nav links
+    expect(links).toHaveLength(3) // 3 nav links
   })
 
   it('applies correct CSS classes', () => {
     render(<Header />)
     
     const header = screen.getByRole('banner')
-    expect(header).toHaveClass('header')
+    expect(header).toHaveClass(styles.header)
   })
 }) 

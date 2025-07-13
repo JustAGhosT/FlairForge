@@ -86,7 +86,7 @@ describe('Security Tests', () => {
         '555-123-456'
       ]
       
-      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
+      const phoneRegex = /^(\+1)?\d{10}$/
       const validatePhone = (phone: string) => phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))
       
       validPhones.forEach(phone => {

@@ -13,7 +13,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <div className={styles.brand}>
-          <img src={cheesyPigLogo} alt="Cheesy Pig Logo" className={styles.logo} />
+          <img src={cheesyPigLogo} alt="FlairForge Logo" className={styles.logo} />
           <h1 className={styles.title}>FlairForge</h1>
         </div>
         

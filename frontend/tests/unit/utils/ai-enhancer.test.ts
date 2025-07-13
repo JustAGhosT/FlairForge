@@ -75,7 +75,13 @@ describe('AI Enhancer Utils', () => {
       const result = await enhanceImage(mockFile)
       
       expect(result).toEqual(mockResponse.data)
-      expect(fetch).toHaveBeenCalledWith('/api/enhance-image', expect.any(FormData))
+      expect(fetch).toHaveBeenCalledWith(
+        '/api/enhance-image',
+        expect.objectContaining({
+          method: 'POST',
+          body: expect.any(FormData),
+        })
+      )
     })
 
     it('validates image file type', async () => {
