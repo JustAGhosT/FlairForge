@@ -1,0 +1,101 @@
+/* Workflow Controls */
+.workflowControls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.workflowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  text-align: center;
+  color: var(--gray-500);
+}
+
+.workflowStep::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray-300);
+  z-index: 0;
+}
+
+.workflowStep:last-child::after {
+  display: none;
+}
+
+.stepIcon {
+  background-color: var(--gray-300);
+  color: var(--light);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+  z-index: 1;
+  transition: background-color var(--transition-medium);
+}
+
+.stepLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.active .stepIcon,
+.completed .stepIcon {
+  background-color: var(--primary);
+}
+
+.active .stepLabel,
+.completed .stepLabel {
+  color: var(--primary);
+}
+
+.completed .stepIcon {
+  background-color: var(--accent);
+}
+
+.completed .stepLabel {
+  color: var(--accent);
+}
+
+@media (max-width: 992px) {
+  .workflowControls {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  
+  .workflowStep {
+    flex: 0 0 calc(33.333% - var(--space-md));
+  }
+  
+  .workflowStep::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .workflowStep {
+    flex: 0 0 calc(50% - var(--space-md));
+  }
+}
+
+@media (max-width: 576px) {
+  .workflowStep {
+    flex: 0 0 100%;
+    margin-bottom: var(--space-md);
+  }
+} 

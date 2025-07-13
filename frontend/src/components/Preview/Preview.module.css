@@ -1,0 +1,88 @@
+/* Preview Component */
+.previewContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.flyerPreview {
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-md);
+  min-height: 600px;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewControls {
+  background-color: var(--gray-100);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+}
+
+.editOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+/* Flyer Templates */
+.flyerTemplate {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-family-base);
+}
+
+.flyerModern {
+  composes: flyerTemplate;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.flyerRustic {
+  composes: flyerTemplate;
+  background-color: #f8f4e9;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSI+CjxyZWN0IHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgZmlsbD0iI2Y4ZjRlOSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSI3LjUiIGN5PSI3LjUiIHI9IjAuNSIgZmlsbD0icmdiYSgxNzAsMTQyLDExMSwwLjEpIj48L2NpcmNsZT4KPC9zdmc+');
+}
+
+.flyerPremium {
+  composes: flyerTemplate;
+  background-color: #f9f9f9;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+}
+
+.flyerPromo {
+  composes: flyerTemplate;
+  background-color: #fff9c4;
+  position: relative;
+}
+
+.flyerPromo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 80px 80px 0;
+  border-color: transparent var(--primary) transparent transparent;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .previewContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .flyerPreview {
+    min-height: 400px;
+  }
+} 

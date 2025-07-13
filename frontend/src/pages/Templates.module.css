@@ -1,0 +1,67 @@
+.templatesContainer {
+  background: var(--surface);
+  color: var(--foreground);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 1.5rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+.templateCard {
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  width: 320px;
+  background: var(--surface-alt);
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow var(--transition), background var(--transition), border var(--transition);
+}
+
+.templateCard:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  background: var(--surface);
+  border-color: var(--primary);
+}
+
+.templateCard h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.templateCard button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.7rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size: 1.08rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.templateCard button:hover {
+  background: var(--secondary);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 700px) {
+  .templateCard {
+    width: 100%;
+    padding: 1.2rem 0.7rem;
+  }
+  .templatesContainer {
+    padding: 1.2rem 0.5rem;
+  }
+} 

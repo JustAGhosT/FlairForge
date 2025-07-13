@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "jsx-a11y/aria-proptypes": "off",
+        "jsx-a11y/aria-props": "off",
+        "jsx-a11y/aria-valid-attr-value": "off"
+    }
+} 

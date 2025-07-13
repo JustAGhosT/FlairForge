@@ -1,0 +1,10 @@
+<div class="flyer part2">
+  <h1><%= title %></h1>
+  <h2><%= subtitle %></h2>
+  <p><%= description %></p>
+  <ul>
+    <% products.forEach(p => { %>
+      <li><%= p.name %>: $<%= p.price.toFixed(2) %></li>
+    <% }) %>
+  </ul>
+</div> 

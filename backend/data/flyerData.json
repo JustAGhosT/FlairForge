@@ -1,0 +1,32 @@
+{
+  "cheesy-pig": {
+    "title": "Cheesy Pig Classic",
+    "subtitle": "Premium Pork Products",
+    "description": "Discover our range of delicious, locally sourced pork products.",
+    "products": [
+      { "name": "Bacon", "price": 5.99 },
+      { "name": "Ham", "price": 7.99 },
+      { "name": "Sausage", "price": 4.99 }
+    ]
+  },
+  "cheesy-pig-promo": {
+    "title": "Cheesy Pig Promo",
+    "subtitle": "Special Offers on Pork Favorites",
+    "description": "Limited-time deals on our best-selling pork products. Grab yours before they're gone!",
+    "products": [
+      { "name": "Promo Bacon", "price": 4.49 },
+      { "name": "Promo Ham", "price": 6.49 },
+      { "name": "Promo Sausage", "price": 3.99 }
+    ]
+  },
+  "cheesy-pig-part2": {
+    "title": "The Cheesy Pig - Part 2",
+    "subtitle": "Even More Porky Goodness",
+    "description": "Our expanded range now includes gourmet sausages, ribs, and more! Taste the difference today.",
+    "products": [
+      { "name": "Gourmet Sausage", "price": 6.99 },
+      { "name": "Pork Ribs", "price": 12.99 },
+      { "name": "Pork Belly", "price": 9.99 }
+    ]
+  }
+} 

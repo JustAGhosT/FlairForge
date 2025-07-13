@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Flyer Generator | The Cheesy Pig</title>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="root"></div>
+  <header class="app-header">
+    <div class="container">
+      <div class="brand">
+        <img src="src/assets/cheesy-pig-logo.svg" class="logo" width="48" height="48" alt="The Cheesy Pig Logo" />
+        <h1>The Cheesy Pig Flyer Generator</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#generator" class="active">Generator</a></li>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="#saved">Saved Flyers</a></li>
+          <li><a href="#help">Help</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <div class="container">
+      <!-- Horizontal Workflow Steps -->
+      <section class="workflow-progress">
+        <div class="workflow-steps">
+          <div class="workflow-step active" data-step="template">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <i class="fas fa-palette step-icon"></i>
+              <span class="step-label">Choose Template</span>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="workflow-step" data-step="content">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <i class="fas fa-pen-to-square step-icon"></i>
+              <span class="step-label">Add Content</span>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="workflow-step" data-step="ai">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <i class="fas fa-robot step-icon"></i>
+              <span class="step-label">AI Enhancement</span>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="workflow-step" data-step="preview">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <i class="fas fa-eye step-icon"></i>
+              <span class="step-label">Preview</span>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="workflow-step" data-step="export">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <i class="fas fa-download step-icon"></i>
+              <span class="step-label">Export</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two-Column Layout Container -->
+      <div class="two-column-layout">
+        <!-- Left Column: Content/Forms -->
+        <div class="content-column">
+          
+          <!-- Template Selection Step -->
+          <section id="template-step" class="workflow-content active">
+            <div class="content-header">
+              <h2>How would you like to create your flyer?</h2>
+            </div>
+            
+            <div class="template-creation-options">
+              <div class="creation-grid">
+                <div class="creation-option" data-action="select-template">
+                  <div class="creation-icon">🎨</div>
+                  <h4>Use Existing Template</h4>
+                  <p>Choose from our professionally designed templates</p>
+                </div>
+                <div class="creation-option" data-action="upload-flyer">
+                  <div class="creation-icon">📸</div>
+                  <h4>Upload Example Flyer</h4>
+                  <p>Upload a photo of your existing flyer for AI conversion</p>
+                </div>
+                <div class="creation-option" data-action="ai-template">
+                  <div class="creation-icon">🤖</div>
+                  <h4>AI Generate Template</h4>
+                  <p>Describe your needs and let AI create a custom template</p>
+                </div>
+                <div class="creation-option" data-action="blank-start">
+                  <div class="creation-icon">📄</div>
+                  <h4>Start from Scratch</h4>
+                  <p>Create a new flyer with just your content</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="template-gallery" id="template-gallery" style="display: none;">
+              <h3>Select a Template</h3>
+              <div class="templates-grid">
+                <div class="template-card" data-template="modern">
+                  <div class="template-preview">
+                    <div class="template-thumbnail">🎨</div>
+                  </div>
+                  <div class="template-info">
+                    <h4 class="template-title">Modern Showcase</h4>
+                    <p class="template-description">Clean, contemporary design with featured products</p>
+                    <div class="template-features">
+                      <span class="feature-tag">Featured Products</span>
+                      <span class="feature-tag">Rich Styling</span>
+                    </div>
+                    <button class="select-template primary">Select Template</button>
+                  </div>
+                </div>
+                
+                <div class="template-card" data-template="catalog">
+                  <div class="template-preview">
+                    <div class="template-thumbnail">📚</div>
+                  </div>
+                  <div class="template-info">
+                    <h4 class="template-title">Complete Catalog</h4>
+                    <p class="template-description">Comprehensive product listing with pre-orders</p>
+                    <div class="template-features">
+                      <span class="feature-tag">6+ Products</span>
+                      <span class="feature-tag">Pre-orders</span>
+                    </div>
+                    <button class="select-template primary">Select Template</button>
+                  </div>
+                </div>
+                
+                <div class="template-card" data-template="promo">
+                  <div class="template-preview">
+                    <div class="template-thumbnail">📱</div>
+                  </div>
+                  <div class="template-info">
+                    <h4 class="template-title">Social Media Promo</h4>
+                    <p class="template-description">Casual, photo-focused design for social sharing</p>
+                    <div class="template-features">
+                      <span class="feature-tag">Photo-Centric</span>
+                      <span class="feature-tag">Mobile Ready</span>
+                    </div>
+                    <button class="select-template primary">Select Template</button>
+                  </div>
+                </div>
+                
+                <div class="template-card" data-template="premium">
+                  <div class="template-preview">
+                    <div class="template-thumbnail">💎</div>
+                  </div>
+                  <div class="template-info">
+                    <h4 class="template-title">Premium Elegant</h4>
+                    <p class="template-description">Luxury-focused design with elegant typography</p>
+                    <div class="template-features">
+                      <span class="feature-tag">Elegant</span>
+                      <span class="feature-tag">Luxury</span>
+                    </div>
+                    <button class="select-template primary">Select Template</button>
+                  </div>
+                </div>
+                
+                <div class="template-card" data-template="rustic">
+                  <div class="template-preview">
+                    <div class="template-thumbnail">🌾</div>
+                  </div>
+                  <div class="template-info">
+                    <h4 class="template-title">Farm-Style Rustic</h4>
+                    <p class="template-description">Earthy, farm-style design with natural textures</p>
+                    <div class="template-features">
+                      <span class="feature-tag">Natural</span>
+                      <span class="feature-tag">Farm Style</span>
+                    </div>
+                    <button class="select-template primary">Select Template</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="upload-section" id="upload-section" style="display: none;">
+              <!-- Image upload component will be inserted here -->
+            </div>
+            
+            <div class="ai-template-section" id="ai-template-section" style="display: none;">
+              <h3>Describe Your Ideal Flyer</h3>
+              <div class="ai-template-form">
+                <div class="form-group">
+                  <label for="ai-description">What kind of flyer do you need?</label>
+                  <textarea id="ai-description" rows="4" placeholder="Example: I need a professional flyer for my farm-to-table restaurant targeting families. It should have a rustic, natural style with green colors and feature our seasonal menu items with prices. The design should be elegant but approachable..."></textarea>
+                </div>
+                
+                <div class="ai-suggestions">
+                  <h4>💡 Include these details for better results:</h4>
+                  <div class="suggestion-grid">
+                    <div class="suggestion-item">
+                      <strong>Business Type:</strong> Restaurant, retail, service, farm, etc.
+                    </div>
+                    <div class="suggestion-item">
+                      <strong>Target Audience:</strong> Families, professionals, local community
+                    </div>
+                    <div class="suggestion-item">
+                      <strong>Style Preference:</strong> Modern, elegant, casual, rustic, bold
+                    </div>
+                    <div class="suggestion-item">
+                      <strong>Color Preferences:</strong> Specific colors or moods you prefer
+                    </div>
+                    <div class="suggestion-item">
+                      <strong>Content Type:</strong> Products, services, events, promotions
+                    </div>
+                    <div class="suggestion-item">
+                      <strong>Special Requirements:</strong> Pricing display, contact info, etc.
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="button" id="btn-generate-ai-template" class="primary">
+                    <i class="fas fa-magic icon"></i> Generate Template with AI
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Content Selection Step -->
+          <section id="content-step" class="workflow-content">
+            <div class="content-header">
+              <h2>Add Your Content</h2>
+              <p class="description">Choose from existing content or create your own.</p>
+            </div>
+            
+            <div class="content-selection">
+              <h3>Quick Start with Prepopulated Content</h3>
+              <div class="prepopulated-grid">
+                <div class="prepopulated-card" data-content="featured-products">
+                  <div class="prepopulated-thumbnail">🥩</div>
+                  <div class="prepopulated-info">
+                    <h4>Featured Products Showcase</h4>
+                    <p>Premium pork products with featured highlights and special offers</p>
+                    <button class="use-content primary">Use This Content</button>
+                  </div>
+                </div>
+                
+                <div class="prepopulated-card" data-content="complete-catalog">
+                  <div class="prepopulated-thumbnail">📋</div>
+                  <div class="prepopulated-info">
+                    <h4>Complete Product Catalog</h4>
+                    <p>Comprehensive product range with pre-orders and special offers</p>
+                    <button class="use-content primary">Use This Content</button>
+                  </div>
+                </div>
+                
+                <div class="prepopulated-card" data-content="social-promo">
+                  <div class="prepopulated-thumbnail">📱</div>
+                  <div class="prepopulated-info">
+                    <h4>Social Media Promo</h4>
+                    <p>Casual, photo-focused flyer perfect for WhatsApp and social sharing</p>
+                    <button class="use-content primary">Use This Content</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="content-divider">
+                <span>or</span>
+              </div>
+              
+              <h3>Create Your Own Content</h3>
+              <form id="flyer-input-form">
+                <div class="form-group">
+                  <label for="flyer-title">Flyer Title</label>
+                  <input type="text" id="flyer-title" placeholder="e.g., Premium Pork Products" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="flyer-subtitle">Subtitle (Optional)</label>
+                  <input type="text" id="flyer-subtitle" placeholder="e.g., Farm-Fresh Quality from Bela Bela">
+                </div>
+                
+                <div class="form-group">
+                  <label for="flyer-products">Products to Feature (one per line)</label>
+                  <textarea id="flyer-products" rows="5" placeholder="Product name | Price | Short description&#10;Cheese Grillers | R80/500g | 100% pork with real cheese"></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label for="flyer-description">Additional Information</label>
+                  <textarea id="flyer-description" rows="3" placeholder="Any additional details you want to include in the flyer..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="button" id="btn-ai-enhance" class="primary">
+                    <i class="fas fa-magic icon"></i> Enhance with AI
+                  </button>
+                  <button type="button" id="btn-skip-ai" class="secondary">
+                    Skip AI Enhancement
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- AI Enhancement Step -->
+          <section id="ai-step" class="workflow-content">
+            <div class="content-header">
+              <h2>AI Content Enhancement</h2>
+              <p class="description">Our AI is analyzing your content and enhancing it for better marketing impact.</p>
+            </div>
+            
+            <div id="ai-processing" class="ai-processing">
+              <div class="spinner"></div>
+              <p>Processing your content with AI...</p>
+              <div class="progress">
+                <div class="progress-bar" style="width: 65%"></div>
+              </div>
+            </div>
+            
+            <div id="ai-results" class="ai-results" style="display:none;">
+              <h3>Enhanced Content</h3>
+              
+              <div class="tabs">
+                <button class="tab-btn active" data-tab="copy">Copy</button>
+                <button class="tab-btn" data-tab="products">Products</button>
+                <button class="tab-btn" data-tab="features">Features</button>
+              </div>
+              
+              <div id="copy-tab" class="tab-content active">
+                <div class="comparison">
+                  <div class="original">
+                    <h4 class="section-title">Original</h4>
+                    <p id="original-title">Premium Pork Products</p>
+                    <p id="original-description">Farm-fresh pork products made with quality ingredients.</p>
+                  </div>
+                  <div class="enhanced">
+                    <h4 class="section-title">AI Enhanced</h4>
+                    <p id="enhanced-title">Premium Farm-Fresh Pork Products</p>
+                    <p id="enhanced-description">Experience the exceptional quality of our heritage pork, ethically raised on market vegetables and crafted into delicious artisanal products your family will love.</p>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="button" id="btn-accept-copy" class="primary">
+                    Accept Enhanced Copy
+                  </button>
+                  <button type="button" id="btn-revert-copy" class="secondary">
+                    Use Original Copy
+                  </button>
+                </div>
+              </div>
+              
+              <div class="form-actions action-row">
+                <button type="button" id="btn-to-templates" class="primary">
+                  Continue to Templates
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Preview Step -->
+          <section id="preview-step" class="workflow-content">
+            <div class="content-header">
+              <h2>Preview Your Flyer</h2>
+              <p class="description">Here's how your flyer looks. You can make adjustments if needed.</p>
+            </div>
+            
+            <div class="preview-controls">
+              <div class="edit-options">
+                <button id="btn-edit-content" class="secondary">
+                  <i class="fas fa-edit icon"></i> Edit Content
+                </button>
+                <button id="btn-change-template" class="secondary">
+                  <i class="fas fa-palette icon"></i> Change Template
+                </button>
+              </div>
+              
+              <div class="form-actions">
+                <button type="button" id="btn-finalize" class="primary">
+                  Finalize Flyer
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Export Step -->
+          <section id="export-step" class="workflow-content">
+            <div class="content-header">
+              <h2>Export Your Flyer</h2>
+              <p class="description">Your flyer is ready! Download it or share it online.</p>
+            </div>
+            
+            <div class="export-options">
+              <h3 class="section-title">Download Options</h3>
+              <div class="option-buttons">
+                <button id="btn-download-jpg" class="primary">
+                  <i class="fas fa-file-image icon"></i> Download as JPG
+                </button>
+                <button id="btn-download-pdf" class="secondary">
+                  <i class="fas fa-file-pdf icon"></i> Download as PDF
+                </button>
+                <button id="btn-download-html" class="secondary">
+                  <i class="fas fa-file-code icon"></i> Download HTML & CSS
+                </button>
+              </div>
+              
+              <h3 class="section-title">Sharing Options</h3>
+              <div class="share-buttons">
+                <button id="btn-share-whatsapp" class="whatsapp">
+                  <i class="fab fa-whatsapp icon"></i> Share via WhatsApp
+                </button>
+                <button id="btn-share-email" class="email">
+                  <i class="fas fa-envelope icon"></i> Share via Email
+                </button>
+                <button id="btn-share-link" class="link">
+                  <i class="fas fa-link icon"></i> Copy Link
+                </button>
+              </div>
+              
+              <div class="save-option">
+                <button id="btn-save-flyer" class="tertiary">
+                  <i class="fas fa-save icon"></i> Save to My Flyers
+                </button>
+              </div>
+              
+              <div class="create-new">
+                <button id="btn-create-new" class="primary">
+                  <i class="fas fa-plus icon"></i> Create New Flyer
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column: Preview/Output -->
+        <div class="preview-column">
+          <div class="preview-container">
+            <div class="preview-header">
+              <h3>Live Preview</h3>
+              <div class="preview-controls">
+                <button class="preview-btn active" data-size="desktop" title="Desktop View" aria-label="Desktop View">
+                  <i class="fas fa-desktop"></i>
+                </button>
+                <button class="preview-btn" data-size="tablet" title="Tablet View" aria-label="Tablet View">
+                  <i class="fas fa-tablet-alt"></i>
+                </button>
+                <button class="preview-btn" data-size="mobile" title="Mobile View" aria-label="Mobile View">
+                  <i class="fas fa-mobile-alt"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="preview-frame">
+              <div id="flyer-preview" class="flyer-preview">
+                <!-- Flyer preview will be rendered here -->
+                <div class="preview-placeholder">
+                  <i class="fas fa-image"></i>
+                  <p>Your flyer preview will appear here</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="export-preview" id="export-preview" style="display: none;">
+              <img id="final-flyer-image" src="" alt="Final flyer preview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p>&copy; 2025 The Cheesy Pig. All rights reserved.</p>
+      <p>Built with 🐷 from Bela Bela, South Africa</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

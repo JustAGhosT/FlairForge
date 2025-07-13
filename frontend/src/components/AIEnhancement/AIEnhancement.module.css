@@ -1,0 +1,126 @@
+/* AI Enhancement Component */
+.aiProcessing {
+  text-align: center;
+  padding: var(--space-xl);
+  background-color: var(--gray-100);
+  border-radius: var(--border-radius-md);
+}
+
+.aiProcessing p {
+  margin: var(--space-md) 0;
+  font-size: 1.1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  height: 10px;
+  background-color: var(--gray-300);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: var(--space-md);
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--primary);
+  transition: width var(--transition-medium);
+}
+
+.aiResults {
+  margin-top: var(--space-lg);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--gray-300);
+  margin-bottom: var(--space-lg);
+}
+
+.tabBtn {
+  background: none;
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--gray-600);
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.tabBtn:hover {
+  color: var(--primary);
+}
+
+.tabBtnActive {
+  composes: tabBtn;
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tabContent {
+  display: none;
+}
+
+.tabContentActive {
+  composes: tabContent;
+  display: block;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--gray-100);
+  border-radius: var(--border-radius-md);
+}
+
+.original, .enhanced {
+  padding: var(--space-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.original {
+  background-color: var(--light);
+  border: 1px solid var(--gray-300);
+}
+
+.enhanced {
+  background-color: var(--light);
+  border: 1px solid var(--accent-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.enhanced .sectionTitle {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+} 

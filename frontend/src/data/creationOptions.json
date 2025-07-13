@@ -1,0 +1,30 @@
+[
+  {
+    "id": "use-existing",
+    "title": "Use Existing Template",
+    "description": "Choose from our professionally designed templates",
+    "icon": "🎨",
+    "action": "select-template"
+  },
+  {
+    "id": "upload-example",
+    "title": "Upload Example Flyer",
+    "description": "Upload a photo of your existing flyer for AI conversion",
+    "icon": "📸",
+    "action": "upload-flyer"
+  },
+  {
+    "id": "ai-generate",
+    "title": "AI Generate Template",
+    "description": "Describe your needs and let AI create a custom template",
+    "icon": "🤖",
+    "action": "ai-template"
+  },
+  {
+    "id": "blank-template",
+    "title": "Start from Scratch",
+    "description": "Create a new flyer with just your content",
+    "icon": "📄",
+    "action": "blank-start"
+  }
+] 

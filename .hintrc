@@ -1,0 +1,6 @@
+{
+  "connector": "local",
+  "hints": {
+    "axe/aria-valid-attr-value": "off"
+  }
+} 
