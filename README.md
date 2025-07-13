@@ -29,12 +29,15 @@ AI-powered flyer generation platform leveraging Cognitive Mesh capabilities for 
 ## Overview
 
 ### What it does
+
 FlairForge transforms your content into professional flyers using AI-powered enhancement and intelligent template management. The platform combines React frontend with serverless backend functions to deliver high-quality marketing materials.
 
 ### Why it matters
+
 FlairForge addresses the challenge of creating professional marketing materials without design expertise. By leveraging Cognitive Mesh capabilities, it provides intelligent content enhancement, automated layout optimization, and scalable template management.
 
 ### Key capabilities
+
 - **AI-Powered Enhancement**: Intelligent content improvement using Reasoning layer
 - **Template Management**: Professional flyer templates with dynamic content binding
 - **Real-time Preview**: Instant visual feedback with Metacognitive optimization
@@ -44,9 +47,11 @@ FlairForge addresses the challenge of creating professional marketing materials 
 ## Mesh Integration
 
 ### Mesh Layer
+
 This component operates in the **Business** layer of the Cognitive Mesh, providing user-facing flyer generation capabilities.
 
 ### Dependencies
+
 | Layer         | Component           | Purpose                                |
 | ------------- | ------------------- | -------------------------------------- |
 | Foundation    | Data Storage        | Template and user data management      |
@@ -55,6 +60,7 @@ This component operates in the **Business** layer of the Cognitive Mesh, providi
 | Agency        | Security & Auth     | User permissions and data protection   |
 
 ### Interfaces
+
 | Interface Type | Endpoint/Method              | Description                |
 | -------------- | ---------------------------- | -------------------------- |
 | REST API       | `/api/v1/generate-flyer`     | Flyer generation endpoint  |
@@ -65,6 +71,7 @@ This component operates in the **Business** layer of the Cognitive Mesh, providi
 ## Features
 
 ### Core Features
+
 - ✅ **AI Enhancement**: Intelligent content improvement and optimization
 - ✅ **Template Library**: Professional flyer templates for various industries
 - ✅ **Real-time Preview**: Instant visual feedback during creation
@@ -72,12 +79,14 @@ This component operates in the **Business** layer of the Cognitive Mesh, providi
 - ✅ **Responsive Design**: Works seamlessly across all devices
 
 ### Advanced Features
+
 - 🚀 **Batch Generation**: Create multiple flyers from spreadsheet data
 - 🚀 **Custom Templates**: Upload and use your own design templates
 - 🚀 **Brand Kit Integration**: Save and reuse brand colors and fonts
 - 🚀 **API Access**: Integrate flyer generation into your applications
 
 ### Roadmap
+
 - 🔄 **Collaboration Features**: Team sharing and approval workflows
 - 📋 **Advanced AI Models**: Enhanced content generation and optimization
 - 🔄 **Mobile App**: Native mobile application for on-the-go creation
@@ -85,11 +94,13 @@ This component operates in the **Business** layer of the Cognitive Mesh, providi
 ## Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - Modern web browser
 - Netlify account (for deployment)
 
 ### 30-Second Setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/flairforge/flairforge
@@ -107,7 +118,8 @@ npm run dev
 ```
 
 ### Verify Installation
-   ```bash
+
+```bash
 # Check health
 curl http://localhost:3000/health
 
@@ -118,18 +130,20 @@ npm run test:mesh
 ## Installation
 
 ### Development Environment
-   ```bash
+
+```bash
 # Clone and setup
 git clone https://github.com/flairforge/flairforge
 cd flairforge
-   npm install
+npm install
 
 # Setup development dependencies
 npm run setup:dev
-   ```
+```
 
 ### Production Deployment
-   ```bash
+
+```bash
 # Using Netlify (recommended)
 # Connect your repository to Netlify
 # Set build settings:
@@ -146,7 +160,8 @@ docker run -d --name flairforge \
 ```
 
 ### Package Manager
-   ```bash
+
+```bash
 # NPM
 npm install @flairforge/core
 
@@ -157,6 +172,7 @@ yarn add @flairforge/core
 ## Usage
 
 ### Basic Example
+
 ```javascript
 import { FlairForgeAPI } from '@flairforge/core';
 
@@ -175,6 +191,7 @@ console.log('Flyer URL:', flyer.flyer_url);
 ```
 
 ### Advanced Configuration
+
 ```javascript
 const api = new FlairForgeAPI({
   baseUrl: 'https://flairforge.netlify.app/.netlify/functions/api',
@@ -191,6 +208,7 @@ const api = new FlairForgeAPI({
 ```
 
 ### Integration Patterns
+
 ```javascript
 // Batch processing
 const flyers = await api.batchGenerate('cheesy-pig', [
@@ -206,6 +224,7 @@ const template = await api.getTemplate('cheesy-pig');
 ## Configuration
 
 ### Environment Variables
+
 | Variable                     | Description             | Default                                                 | Required |
 | ---------------------------- | ----------------------- | ------------------------------------------------------- | -------- |
 | `VITE_API_BASE_URL`          | API base URL            | `https://flairforge.netlify.app/.netlify/functions/api` | Yes      |
@@ -214,7 +233,9 @@ const template = await api.getTemplate('cheesy-pig');
 | `VITE_GOOGLE_ANALYTICS_ID`   | Analytics tracking ID   | -                                                       | No       |
 
 ### Configuration File
+
 Create a `config.json` file:
+
 ```json
 {
   "api": {
@@ -236,10 +257,13 @@ Create a `config.json` file:
 ## API Reference
 
 ### Core Methods
+
 #### `api.generateFlyer(template, data, options)`
+
 Generates a flyer using the specified template and data.
 
 **Parameters:**
+
 - `template` (String): Template identifier
 - `data` (Object): Flyer content data
 - `options` (Object): Generation options
@@ -247,14 +271,17 @@ Generates a flyer using the specified template and data.
 **Returns:** Promise<FlyerResponse>
 
 #### `api.getTemplates(category)`
+
 Retrieves available templates.
 
 **Parameters:**
+
 - `category` (String, optional): Filter by category
 
 **Returns:** Promise<TemplateList>
 
 ### REST API Endpoints
+
 | Method | Endpoint                 | Description              |
 | ------ | ------------------------ | ------------------------ |
 | GET    | `/health`                | Service health check     |
@@ -267,6 +294,7 @@ For complete API documentation, see [API Reference](./docs/flairforge-api-refere
 ## Development
 
 ### Setup Development Environment
+
 ```bash
 # Install development dependencies
 npm run setup:dev
@@ -279,6 +307,7 @@ npm run dev:watch
 ```
 
 ### Project Structure
+
 ```
 flairforge/
 ├── frontend/              # React frontend
@@ -301,12 +330,14 @@ flairforge/
 ```
 
 ### Code Standards
+
 - **Language**: TypeScript/JavaScript
 - **Style**: ESLint + Prettier
 - **Testing**: Jest + React Testing Library
 - **Documentation**: JSDoc
 
 ### Pre-commit Hooks
+
 ```bash
 # Setup pre-commit hooks
 npm run setup:hooks
@@ -319,6 +350,7 @@ npm run format
 ## Testing
 
 ### Running Tests
+
 ```bash
 # All tests
 npm test
@@ -340,7 +372,8 @@ npm run test:coverage
 ```
 
 ### Test Structure
-```bash
+
+```
 tests/
 ├── unit/               # Unit tests
 ├── integration/        # Integration tests
@@ -350,6 +383,7 @@ tests/
 ```
 
 ### Writing Tests
+
 ```javascript
 describe('FlairForgeAPI', () => {
   test('should generate flyer correctly', async () => {
@@ -365,6 +399,7 @@ describe('FlairForgeAPI', () => {
 ## Deployment
 
 ### Netlify Deployment
+
 ```toml
 # frontend/netlify.toml
 [build]
@@ -382,6 +417,7 @@ describe('FlairForgeAPI', () => {
 ```
 
 ### Monitoring
+
 - **Health Checks**: `/health` endpoint
 - **Metrics**: Netlify Analytics integration
 - **Logs**: Netlify Function logs
@@ -392,6 +428,7 @@ describe('FlairForgeAPI', () => {
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md).
 
 ### Development Workflow
+
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/your-feature`
 3. Make your changes
@@ -400,6 +437,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 6. Submit a pull request
 
 ### Issues and Discussions
+
 - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/flairforge/flairforge/issues)
 - 💡 **Feature Requests**: [GitHub Discussions](https://github.com/flairforge/flairforge/discussions)
 - 📋 **Roadmap**: [Project Board](https://github.com/flairforge/flairforge/projects)
@@ -409,6 +447,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ### Common Issues
 
 #### Build Failures
+
 ```bash
 # Check build logs
 npm run build
@@ -421,6 +460,7 @@ npm run type-check
 ```
 
 #### API Function Errors
+
 ```bash
 # Test function locally
 netlify dev
@@ -433,6 +473,7 @@ netlify env:list
 ```
 
 #### Performance Issues
+
 ```bash
 # Check bundle size
 npm run build -- --analyze
@@ -442,6 +483,7 @@ npm run monitor:performance
 ```
 
 ### Getting Help
+
 - 📖 **Documentation**: [Full Documentation](./docs/)
 - 💬 **Community**: [Discord](https://discord.gg/flairforge)
 - 📧 **Support**: support@flairforge.com
@@ -454,12 +496,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 ### Community
+
 - **Discord**: [Join our community](https://discord.gg/flairforge)
 - **GitHub Discussions**: [Ask questions](https://github.com/flairforge/flairforge/discussions)
 - **Stack Overflow**: Use tag `flairforge`
 
 ### Commercial Support
+
 For enterprise support, training, and consulting:
+
 - 📧 Email: enterprise@flairforge.com
 - 🌐 Website: [flairforge.com/enterprise](https://flairforge.com/enterprise)
 
