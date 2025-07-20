@@ -19,7 +19,8 @@
     "test:security": "npm audit && npm run test:security-scan",
     "test:security-scan": "echo 'Security scanning placeholder'",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint src --ext ts,tsx --fix"
+    "lint:fix": "eslint src --ext ts,tsx --fix",
+    "test:all": "node tests/test-runner.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.1",

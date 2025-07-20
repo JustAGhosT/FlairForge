@@ -1,0 +1,95 @@
+# Page snapshot
+
+```yaml
+- text: Welcome to FlairForge! AI-powered flyer generator for The Cheesy Pig
+- paragraph: Create stunning, professional flyers in minutes with our intelligent design system. Whether you need promotional materials, event announcements, or product showcases, FlairForge makes it easy to bring your ideas to life.
+- paragraph: Start by choosing a template, add your content, enhance it with AI, and export your masterpiece in multiple formats. Perfect for businesses, events, and marketing campaigns.
+- banner:
+  - img "The Cheesy Pig Logo"
+  - heading "The Cheesy Pig Flyer Generator" [level=1]
+  - navigation:
+    - list:
+      - listitem:
+        - link "Generator":
+          - /url: "#generator"
+      - listitem:
+        - link "Templates":
+          - /url: "#templates"
+      - listitem:
+        - link "Saved Flyers":
+          - /url: "#saved"
+      - listitem:
+        - link "Help":
+          - /url: "#help"
+- main:
+  - text: 1  Choose Template 2  Add Content 3  AI Enhancement 4  Preview 5  Export
+  - heading "How would you like to create your flyer?" [level=2]
+  - text: 🎨
+  - heading "Use Existing Template" [level=4]
+  - paragraph: Choose from our professionally designed templates
+  - text: 📸
+  - heading "Upload Example Flyer" [level=4]
+  - paragraph: Upload a photo of your existing flyer for AI conversion
+  - text: 🤖
+  - heading "AI Generate Template" [level=4]
+  - paragraph: Describe your needs and let AI create a custom template
+  - text: 📄
+  - heading "Start from Scratch" [level=4]
+  - paragraph: Create a new flyer with just your content
+  - heading "Add Your Content" [level=2]
+  - paragraph: Choose from existing content or create your own.
+  - heading "Quick Start with Prepopulated Content" [level=3]
+  - text: 🥩
+  - heading "Featured Products Showcase" [level=4]
+  - paragraph: Premium pork products with featured highlights and special offers
+  - button "Use This Content"
+  - text: 📋
+  - heading "Complete Product Catalog" [level=4]
+  - paragraph: Comprehensive product range with pre-orders and special offers
+  - button "Use This Content"
+  - text: 📱
+  - heading "Social Media Promo" [level=4]
+  - paragraph: Casual, photo-focused flyer perfect for WhatsApp and social sharing
+  - button "Use This Content"
+  - text: or
+  - heading "Create Your Own Content" [level=3]
+  - text: Flyer Title
+  - textbox "Flyer Title"
+  - text: Subtitle (Optional)
+  - textbox "Subtitle (Optional)"
+  - text: Products to Feature (one per line)
+  - textbox "Products to Feature (one per line)"
+  - text: Additional Information
+  - textbox "Additional Information"
+  - button " Enhance with AI"
+  - button "Skip AI Enhancement"
+  - heading "AI Content Enhancement" [level=2]
+  - paragraph: Our AI is analyzing your content and enhancing it for better marketing impact.
+  - paragraph: Processing your content with AI...
+  - heading "Preview Your Flyer" [level=2]
+  - paragraph: Here's how your flyer looks. You can make adjustments if needed.
+  - button " Edit Content"
+  - button " Change Template"
+  - button "Finalize Flyer"
+  - heading "Export Your Flyer" [level=2]
+  - paragraph: Your flyer is ready! Download it or share it online.
+  - heading "Download Options" [level=3]
+  - button " Download as JPG"
+  - button " Download as PDF"
+  - button " Download HTML & CSS"
+  - heading "Sharing Options" [level=3]
+  - button " Share via WhatsApp"
+  - button " Share via Email"
+  - button " Copy Link"
+  - button " Save to My Flyers"
+  - button "+ Create New Flyer"
+  - heading "Live Preview" [level=3]
+  - button "Desktop View": 
+  - button "Tablet View": 
+  - button "Mobile View": 
+  - text: 
+  - paragraph: Your flyer preview will appear here
+- contentinfo:
+  - paragraph: © 2025 The Cheesy Pig. All rights reserved.
+  - paragraph: Built with 🐷 from Bela Bela, South Africa
+```
