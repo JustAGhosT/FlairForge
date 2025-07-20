@@ -164,6 +164,8 @@ npm run test:security     # Security tests
 npm run test:ai           # AI model tests
 ```
 
+> **Note:** The custom test runner and utility scripts are located in `tests/scripts/`. Use these for orchestrating and automating complex test workflows.
+
 ## 13. Reporting & Dashboards
 
 - **Test Results**: GitHub Actions integration with detailed reporting

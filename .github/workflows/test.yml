@@ -31,7 +31,7 @@ jobs:
         run: npm run lint
 
       - name: Run unit tests
-        run: npm run test:unit
+        run: npm run test:unit -- --config=../tests/__config__/vitest.config.frontend.ts
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
@@ -39,8 +39,8 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage/lcov.info
-          directory: ./coverage
+          file: tests/__coverage__/lcov.info
+          directory: tests/__coverage__
           flags: frontend-unit
           name: frontend-unit-coverage
 
@@ -67,14 +67,14 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run E2E tests
-        run: npm run test:e2e
+        run: npx playwright test --config=../tests/__config__/playwright.config.ts
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: playwright-report
-          path: frontend/playwright-report/
+          path: tests/test-results/
           retention-days: 30
 
   # Backend Tests
@@ -101,7 +101,7 @@ jobs:
         run: npm run lint
 
       - name: Run unit tests
-        run: npm run test:unit
+        run: npm run test:unit -- --config=../tests/__config__/vitest.config.backend.js
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
@@ -109,8 +109,8 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage/lcov.info
-          directory: ./coverage
+          file: tests/__coverage__/lcov.info
+          directory: tests/__coverage__
           flags: backend-unit
           name: backend-unit-coverage
 

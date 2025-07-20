@@ -230,6 +230,11 @@ BASE_URL=https://flairforge.netlify.app
 API_BASE_URL=http://localhost:8888
 ```
 
+## Custom Test Runner & Scripts
+- The custom test runner is located at `tests/scripts/test-runner.js`.
+- Additional test utility scripts are in `tests/scripts/`.
+- The runner executes frontend unit tests, starts the dev server, runs E2E tests, and shuts down the server automatically.
+
 ## Writing Tests
 
 ### Frontend Test Structure
