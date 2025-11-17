@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 let Preview
 async function loadPreviewComponent() {
   if (!Preview) {
+    // eslint-disable-next-line no-console
     console.log('[SSR] Loading Preview component from SSR bundle...')
     Preview = (await import('../../frontend/dist/ssr/entry-server.js')).Preview
     if (!Preview) {
@@ -21,12 +22,14 @@ async function loadPreviewComponent() {
 async function getFlyerData(flyerId) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   const dataPath = path.join(__dirname, '../data/flyerData.json')
+  // eslint-disable-next-line no-console
   console.log(`[SSR] Loading flyer data from ${dataPath} for flyerId: ${flyerId}`)
   const data = JSON.parse(await readFile(dataPath, 'utf8'))
   const flyer = data[flyerId]
   if (!flyer) {
     console.warn(`[SSR] Flyer data not found for flyerId: ${flyerId}`)
   } else {
+    // eslint-disable-next-line no-console
     console.log(`[SSR] Found flyer data for flyerId: ${flyerId}`)
   }
   return flyer
@@ -37,6 +40,7 @@ async function getFlyerHtml(templateId, flyerData) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   const ejs = await import('ejs')
   const templatePath = path.join(__dirname, `../templates/${templateId}.ejs`)
+  // eslint-disable-next-line no-console
   console.log(`[SSR] Loading template from ${templatePath}`)
   try {
     const template = await readFile(templatePath, 'utf8')
@@ -57,6 +61,7 @@ export async function renderFlyerSSR(flyerId, templateId) {
     if (!Preview) throw new Error('Preview component not loaded')
     const element = React.createElement(Preview, { html })
     const rendered = renderToString(element)
+    // eslint-disable-next-line no-console
     console.log(`[SSR] Successfully rendered flyerId: ${flyerId}`)
     return rendered
   } catch (err) {
