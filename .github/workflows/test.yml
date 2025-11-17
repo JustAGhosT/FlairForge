@@ -70,7 +70,7 @@ jobs:
         run: npx playwright test --config=../tests/__config__/playwright.config.ts
 
       - name: Upload Playwright report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
