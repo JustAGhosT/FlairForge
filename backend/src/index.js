@@ -92,7 +92,7 @@ app.get('/api/flyers/:id', (req, res) => {
     res.json({
       id: flyer.id,
       title: flyer.title,
-      html: html
+      html
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch flyer' });
@@ -127,7 +127,7 @@ app.post('/api/flyers/generate', (req, res) => {
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
@@ -138,7 +138,10 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`🚀 FlairForge Backend running on port ${PORT}`);
+  // eslint-disable-next-line no-console
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+  // eslint-disable-next-line no-console
   console.log(`📋 API docs: http://localhost:${PORT}/api/flyers`);
 }); 

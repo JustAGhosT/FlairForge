@@ -37,7 +37,6 @@ router.get('/flyer/:id', async (req, res) => {
 // Export flyer as PNG/JPG
 router.get('/flyer/:id/export', async (req, res) => {
   const flyerId = req.params.id
-  const templateId = flyerId
   const format = req.query.format === 'jpg' ? 'jpeg' : 'png'
   try {
     // Launch Puppeteer
