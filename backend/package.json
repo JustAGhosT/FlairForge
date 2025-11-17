@@ -11,7 +11,7 @@
     "test:unit": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
-    "test:integration": "vitest --run ../tests/integration",
+    "test:integration": "vitest --run --config=../tests/__config__/vitest.config.backend.js integration",
     "test:api": "supertest tests/api",
     "test:contract": "dredd api/openapi.yaml http://localhost:8888",
     "test:performance": "k6 run tests/performance/load-test.js",

@@ -10,7 +10,12 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    include: ['../tests/unit/**/*.test.js', '../tests/unit/**/*.spec.js'],
+    include: [
+      '../tests/unit/**/*.test.js',
+      '../tests/unit/**/*.spec.js',
+      '../tests/integration/**/*.test.js',
+      '../tests/integration/**/*.spec.js'
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
