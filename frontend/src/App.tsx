@@ -134,6 +134,7 @@ function FlyerCreator({ onClose }: { onClose: () => void }) {
 }
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function TemplateStep() {
   const { selectedOption, setSelectedOption } = useTemplateStepStore();
 
@@ -186,6 +187,7 @@ function TemplateStep() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ContentStep() {
   const updateFlyerData = useAppStore(state => state.updateFlyerData);
 
@@ -235,6 +237,7 @@ function ContentStep() {
     </section>
   );
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function AIStep() {
   // Example: Use TanStack Query for async AI enhancement (placeholder)
   const { data, isLoading, isError } = useQuery({
@@ -292,6 +295,7 @@ function AIStep() {
     </section>
   );
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function PreviewStep() {
   // Placeholder: Use Zustand flyerData for preview
   return (
@@ -320,6 +324,7 @@ function PreviewStep() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ExportStep() {
   // Placeholder: Use Zustand flyerData for export/share
   return (
