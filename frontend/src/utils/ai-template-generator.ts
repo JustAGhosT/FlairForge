@@ -198,7 +198,7 @@ export class AITemplateGenerator {
 
     // Add style-specific customizations
     if (analysis.style === 'premium') {
-      return baseCSS + `
+      return `${baseCSS}
         .ai-generated-template {
           background: linear-gradient(135deg, #f8f9fa, #e9ecef);
           border: 2px solid var(--accent);
@@ -210,7 +210,7 @@ export class AITemplateGenerator {
         }
       `;
     } else if (analysis.style === 'rustic') {
-      return baseCSS + `
+      return `${baseCSS}
         .ai-generated-template {
           background: linear-gradient(135deg, #f5f3f0, #e8e2d4);
           border: 3px solid #8b7355;

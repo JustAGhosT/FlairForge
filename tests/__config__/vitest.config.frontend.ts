@@ -9,8 +9,8 @@ export default defineConfig({
     globals: true,
     testTimeout: 30000, // 30 seconds for tests that create large files
     include: [
-      'tests/unit/**/*.test.ts',
-      'tests/unit/**/*.test.tsx',
+      '../tests/unit/**/*.test.ts',
+      '../tests/unit/**/*.test.tsx',
     ],
     exclude: [
       'node_modules',
