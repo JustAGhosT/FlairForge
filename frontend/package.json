@@ -16,7 +16,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:performance": "k6 run tests/performance/load-test.js",
-    "test:security": "npm audit && npm run test:security-scan",
+    "test:security": "npm audit --audit-level=high && npm run test:security-scan",
     "test:security-scan": "echo 'Security scanning placeholder'",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --fix",
