@@ -101,7 +101,7 @@ jobs:
         run: npm run lint
 
       - name: Run unit tests
-        run: npm run test:unit -- --config=../tests/__config__/vitest.config.backend.js
+        run: npm run test:unit
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
