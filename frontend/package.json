@@ -13,7 +13,7 @@
     "test:unit": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --config=../tests/__config__/playwright.config.ts",
     "test:e2e:ui": "playwright test --ui",
     "test:performance": "k6 run tests/performance/load-test.js",
     "test:security": "npm audit --audit-level=high && npm run test:security-scan",
